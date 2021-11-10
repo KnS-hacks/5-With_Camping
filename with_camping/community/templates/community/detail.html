@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시글 세부</title>
+</head>
+
+<body>
+    <div id="bulletin_post_header">
+        <h1>{{bulletin_post.title}}</h1>
+        <p>게시물 번호 : {{bulletin_post.pk}}</p>
+        <p>작성자 : {{bulletin_post.author}}</p>
+        <p>작성일 : {{bulletin_post.creation_date}}</p>
+    </div>
+    
+    <p>{{bulletin_post.body}}</p>
+</body>
+</html>
