@@ -9,10 +9,6 @@
 
   <!--본문 내용-->
   {% block content %}
-    {%for obj in bulletin_post.all%}
-        <h1>제목 : {{obj.title}}</h1>
-        <p>내용 : {{obj.body}}</p>
-        <p>작성일 : {{boj.date}}</p>
-    {%endfor%}
-  
+
+
   {% endblock %}
