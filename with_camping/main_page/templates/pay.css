@@ -1,0 +1,61 @@
+header {
+    height: 50;
+    background-color: white !important;
+}
+
+body{
+  font-family: 'MaruBuri-Regular';
+src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.0/MaruBuri-Regular.woff') format('woff');
+font-weight: normal;
+font-style: normal;
+  background-color:#F2EAE0 ;
+} 
+@font-face {
+font-family: 'MaruBuri-Regular';
+src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.0/MaruBuri-Regular.woff') format('woff');
+font-weight: normal;
+font-style: normal;
+}      
+
+#pay_box{
+    background-color: white;
+    width: 800px;
+    height: 450px;
+    margin-top: 70px;
+    margin-left: 350px;
+}
+#pay{
+    padding-top: 15px;
+    text-align: center;
+    
+}
+#choose_card{
+    margin-top: 15px;
+}
+#enter_card_number{
+    margin-top: 20px;
+    text-align: center;
+}
+.pay_btn {
+text-decoration:none;
+font-family:Arial;
+text-indent:0px;
+line-height:30px;
+-moz-border-radius:0px;
+-webkit-border-radius:0px;
+border-radius:0px;
+text-align:center;
+vertical-align:middle;
+display:inline-block;
+font-size:20px;
+color:#f8f8f8;
+width:289px;
+height:50px;
+padding:13px;
+margin-top: 15px;
+margin-left: 235px;
+border-color:#fcfcfc;
+border-width:2px;
+border-style:solid;
+background-color: rgb(49, 130, 223);
+}

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <!-- 합쳐지고 최소화된 최신 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <!-- 부가적인 테마 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase</title>
+
+    <link rel="stylesheet" href="purchase_detail.css">
+
+</head>
+
+<body>
+    <!-- 로그인/회원가입 네비게이션 바 -->
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="   ">로고</a>
+                <!--메인 화면으로 넘어가는 링트 달기 -->
+                <!--로고 사진 넣기 -->
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href=#>캠핑장 예약</a></li>
+                    <!--예약페이지 링크 달기 -->
+                    <li><a href=#>캠핑용품 구매/대여</a></li>
+                    <!--캠핑용품 구매/대여 -->
+                    <li><a href=#>로그인</a></li>
+                    <!--로그인 링크 달기 -->
+                    <!-- <li><a href=#>Logout</a></li> -->
+                    <li><a href="   ">회원가입</a></li>
+                    <!--회원가입 링크 -->
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+    <div id=title>
+        <p>
+        <h2>With_CAMPING</h2>
+        </p>
+    </div>
+
+    <div class="purchase_detail_page">
+        <br>
+
+        <table border="1" cellpadding="10" cellspacing="10" class="purchase_box">
+            <tr>
+                <th>
+                    <!-- 상품 상세 이미지 -->
+                    <div id="slideShow">
+                        <ul class="slides">
+                            <li><img src="tent.jpg" alt="" style="width: 600px; height: 500px;"></li>
+                            <li><img src="tent1.jpg" alt="" style="width: 600px; height: 500px;"></li>
+                            <li><img src="tent2.jpg" alt="" style="width: 600px; height: 500px;"></li>
+                            <li><img src="tent3.jpg" alt="" style="width: 600px; height: 500px;"></li>
+                            <li><img src="tent4.jpg" alt="" style="width: 600px; height: 500px;"></li>
+                            <!-- <li><img src="camping6.jpg" alt="" style="width: 600px; height: 500px;"></li> -->
+                        </ul>
+                        <p class="controller">
+                            <!-- &lang: 왼쪽 방향 화살표 &rang: 오른쪽 방향 화살표 -->
+                            <span class="prev">&lang;</span>
+                            <span class="next">&rang;</span>
+                        </p>
+                    </div>
+                </th>
+                <th style="width: 450px;">
+                    <div style="margin-top: 30px; margin-left: 30px;">
+                        <h3 style="margin-top: 50px;"><strong>메이튼 레드와일드 캠핑 텐트 오두막</strong></h3>
+                        <h3 style="margin-left: 270px; margin-top: 40px;"><strong>330,000원</strong></h3>
+                        <div class="card_discount">
+                            <img src="card.png" alt="카드" style="width: 25px; margin-left: 10px; margin-top: 5px;"> 
+                            <h5 style="margin-left: 55px; margin-top: -19px;">롯데카드 간편결제 시 5% 청구할인(최대 1만원)</h5> 
+                        </div>
+                        <div style="border: 1px solid; margin-top: 20px; width: 390px;">
+                            <p>최대 할인가</p>
+                            <h5>&nbsp&nbsp&nbsp└소식알림 동의 고객 1,000원 장바구니 할인</h5>
+                            <p>최대 적립 포인트</p>
+                            <h5>&nbsp&nbsp&nbsp└기본적립</h5>
+                        </div>
+                        <br>
+                        <h5>택배배송&nbsp&nbsp|&nbsp&nbsp4,500원</h5>
+                        <hr style="width: 390px;">
+                        <input type='button'  id="minus_btn" onclick='count("minus")' value='-' />
+                        <div id='result'  id="result">0</div>
+                        <input type='button' id="plus_btn"  onclick='count("plus")' value='+' />
+
+                        <h5 style="margin-left: 220px; margin-top: 30px;">총 상품 금액&nbsp&nbsp|&nbsp&nbsp330,000원</h5>    <!--계산되게 바꾸기 -->
+                        <hr style="width: 390px; margin-top: 30px;">
+                        <a href="#" class="purchase_btn" role="button">구매하기</a>
+                        <a href="#" class="shopping_basket" role="button">장바구니</a>
+                    </div>
+                    </div>
+                </th>
+            </tr>
+        </table>
+        <div style="margin-left: 200px; margin-top: 20px;">
+            <img src="tent_detail1.jpg" alt="">
+            <img src="tent_detail2.jpg" alt="">
+            <img src="tent_detail3.jpg" alt="">
+            <img src="tent_detail4.jpg" alt="">
+            <img src="tent_detail5.jpg" alt="">
+            <img src="tent_detail6.jpg" alt="">
+            <img src="tent_detail7.jpg" alt="">
+        </div>
+    </div>
+    <script src="purchase_detail.js"></script>
+</body>
+</html>

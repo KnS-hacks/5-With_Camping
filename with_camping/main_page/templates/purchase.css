@@ -1,0 +1,39 @@
+body{
+    font-family: 'MaruBuri-Regular';
+src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.0/MaruBuri-Regular.woff') format('woff');
+font-weight: normal;
+font-style: normal;
+    background-color:#F2EAE0 ;
+  } 
+  @font-face {
+font-family: 'MaruBuri-Regular';
+src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.0/MaruBuri-Regular.woff') format('woff');
+font-weight: normal;
+font-style: normal;
+}      
+  #title{
+      margin-left: 620px;
+      margin-top: 50px;
+  }
+  /* 검색 상자 */
+  .search{
+    width: 1000px;
+    margin-left: 150px;
+    margin-top: 30px;
+  }
+  /* 전체 상품 글씨 */
+  #content{
+      margin-left: 650px;
+      margin-top: 30px;
+  }
+  /* 상품 보여주는 칸 */
+  .thumbnail{
+      width: 430px;
+      height: 530px;
+      margin-left: 40px;
+      margin-right: 20px;
+      margin-top: 50px;
+  }
+  .a_btn{
+      margin-left: 100px;
+  }

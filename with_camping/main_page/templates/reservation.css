@@ -1,0 +1,51 @@
+body{
+    font-family: 'MaruBuri-Regular';
+src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.0/MaruBuri-Regular.woff') format('woff');
+font-weight: normal;
+font-style: normal;
+    background-color:#F2EAE0 ;
+  } 
+  @font-face {
+font-family: 'MaruBuri-Regular';
+src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.0/MaruBuri-Regular.woff') format('woff');
+font-weight: normal;
+font-style: normal;
+}      
+  #title{
+      margin-left: 620px;
+      margin-top: 50px;
+  }
+  /* 검색 상자 */
+  .search{
+    width: 1000px;
+    margin-left: 150px;
+    margin-top: 30px;
+  }
+
+  #start_date{
+      float: left;
+      margin-left: 40px;
+  }
+  #last_date{
+      float: left;
+      margin-left: 30px;
+      margin-top: -34px;
+  }
+  #map_image{
+    margin-left: 20px; 
+    margin-top: -6px;
+    float:left;
+  } 
+  #recommendform{
+    margin-left: 26px;
+    margin-top: 20px;
+  }
+  .hr_1{
+     color: rgb(159, 127, 92);   /*색깔 변경 안됨 */
+  }
+  .camping_reservation_box{
+    background-color: white;
+    width: 1400px;
+    height: 300px;
+    margin-left: 38px;
+  }
