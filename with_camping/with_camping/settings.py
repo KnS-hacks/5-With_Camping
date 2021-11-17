@@ -63,7 +63,7 @@ ROOT_URLCONF = 'with_camping.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATE_DIR],
+        'DIRS': ['with_camping/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
