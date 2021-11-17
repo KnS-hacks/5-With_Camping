@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
   <!-- 이 html에 추가되는 CSS -->
   {% block css %}
@@ -13,8 +14,8 @@
   .top_content{
     height:630px;
     background: linear-gradient(to bottom, rgba(225,225,225,0) 50%,
-    rgba(225,225,225,0.5) 75%,rgba(225,225,225,0.9) 100%),
-      url("homeimg.jpg");
+    rgba(225,225,225,0.5) 75%,rgba(225,225,225,0.9) 100%);
+    background-image:url('/main_page/images/homeimg.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     width:100%;
@@ -73,7 +74,7 @@
     margin:100px auto;
   }
   .select_container div{
-    background-color: #FFFFFA;
+    background-color: #FFFFFD;
   }
   .select_container div:hover{
     background-color:#EFEFEF;
