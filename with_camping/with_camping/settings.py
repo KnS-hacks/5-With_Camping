@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'camping_tools',
     'camping_ground',
     'community',
+    'main_page',
 ]
 
 MIDDLEWARE = [
