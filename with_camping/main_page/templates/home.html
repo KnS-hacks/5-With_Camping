@@ -1,14 +1,771 @@
-{% extends 'base.html' %}
+<!-----------------------------------------base.html<------------------------------>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <!--부트스트랩 CSS/JS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <!--jQuery-->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="//code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
+    <script src="https://kit.fontawesome.com/b3e34e7be5.js" crossorigin="anonymous"></script>
 
-  <!-- 이 html에 추가되는 CSS -->
-  {% block css %}
+    <title>withcamping</title>
+
   <style>
+  
+  html{
+    color:#4d5058;
+  }
+
+  @font-face {
+      font-family: 'MaruBuri-Regular';
+      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.0/MaruBuri-Regular.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+  }    
+
     
+  body{margin:0; padding:0; font-family: 'MaruBuri-Regular', cursive;} 
+
+  /* 링크 걸었을 때 밑줄 표시 없도록 */ 
+  a{text-decoration: none; color: black;} 
+  li{list-style: none;} 
+
+  .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: white;
+      box-shadow: 0 0 4px 0 #EBEBEB; 
+      padding: 0 30px;
+      height:70px;
+  }
+
+  .navbar_logo{
+    font-size:24px;
+    height:50px;
+    margin:0;
+  }
+
+  .navbar_menu {
+      display: flex;
+      list-style: none;
+      height: 50px;
+      margin:0 0 0 50px;
+  }
+  .navbar_menu li{
+    width: 120px;
+    text-align: center;
+  }
+  .navbar_menu a{
+    position: relative;
+    top:25%;
+  }
+
+  .navbar_login{
+    display:flex;
+    list-style: none;
+    height:50px;
+    margin:0;
+  }
+  .navbar_login li{
+    width:100px;
+    text-align: center;
+  }
+  .navbar_login a{
+    position: relative;
+    top:25%;
+  }
+
+  /*메뉴 마우스 올릴 때 효과*/
+  .navbar_menu li:hover {
+      background-color: #EEEEEE;
+      border-radius: 4px;
+  }
+  .navbar_login li:hover {
+      background-color: #EEEEEE;
+      border-radius: 4px;
+  }
+
+
+  /* footer */
+  footer{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      height: 150px;
+      width: 100%;
+      bottom:0;
+      background-color: #FFF9F2;
+
+  }
+  footer span{
+      font-size: 10px;
+      font-weight: 500;
+      color:black;
+      line-height: 30px;
+  }
+  /*위 아래 버튼*/
+  #toUpDown{
+      z-index:50;
+      display: flex;
+      flex-direction: column;
+      position:fixed;
+      right: 20px;
+      top: 50%;
+  }
+  #toUpDown span{
+      margin: 15px;
+      padding: 8px 8px;
+      text-align: center;
+      border: solid 1px #F2CA9C;
+      border-radius: 100%;
+      color: #F2CA9C;
+  }
+  #toUpDown span a{ color:#F2CA9C;}
+  #toUpDown span a:hover{ color:white;}
+  #toUpDown span:hover{ background-color:#F2CA9C ;}
+  /*------------------------------------------base.html>---------------------------------------*/
+
+  #container {
+    height:3000px;
+    background-color: #FFFFFD;
+  }
+  
+  .top_content{
+    height:630px;
+    background: linear-gradient(to bottom, rgba(225,225,225,0) 50%,
+    rgba(225,225,225,0.5) 75%,rgba(225,225,225,0.9) 100%),
+      url("homeimg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width:100%;
+  }
+
+  h1 {
+    margin:0 auto;
+    padding-top:50px;
+    font-size: 100px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #f5f5f5;
+  }
+  /*검색바 css*/
+  .searchBar{
+    position: relative;
+    left:50%;
+    margin: 340px 0 0 -300px;
+    width: 600px;
+  }
+  .searchBar i{
+    position:absolute;
+    top: 17px;
+    left:18px;
+    color:white;
+  }
+  .searchBar_input{
+    height: 50px;
+    width:100%;
+    box-sizing: border-box;
+    display:inline-block;
+    font-size:20px;
+    transition: .5s;
+    border: solid 3px #fff;
+    background-color: rgba(245, 245, 245, 0);
+    box-shadow: 2px 2px 20px #C9C9C9;
+    padding: 0 40px;
+  }
+  .searchBar_input[type="text"]{
+    position: relative;
+    border-radius: 25px;
+    cursor: pointer;
+    color:black;
+  }
+  .searchBar_input::placeholder{
+    color: white;
+  }
+  /*지역, 날짜, 인원 설정 css*/
+  .select_container{
+    display:flex;
+    width: 680px;
+    margin:100px auto;
+  }
+  .select_container div{
+    background-color: #FFFFFA;
+  }
+  .select_container div:hover{
+    background-color:#EFEFEF;
+  }
+  /*지역 선택*/
+  .select_area{
+    height:50px;
+    width:160px;
+    border: solid 1px #C7C7C7;
+    border-radius: 5px;
+    padding:10px;
+    display:flex;
+    margin-left: 20px;
+  }
+  .select_area:hover{
+    cursor: pointer;
+  }
+  /*지역 선택 모달창*/
+  .area_modal {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 1);
+    z-index: 2;
+  }
+  .area_modal_content {
+    position: absolute;
+    left: 37%;
+    top: 35%;
+    width: 500px;
+    height: 300px;
+    background-color: white;
+    overflow: auto;
+    padding:10px;
+    box-shadow: 1px 1px 15px #4d5058;
+  }
+  /*공동 x버튼*/
+  .btn_close{
+    float: right;
+  }
+  
+  /*날짜 선택*/
+  .select_date{
+    height:50px;
+    width:240px;
+    border: solid 1px #C7C7C7;
+    border-radius: 5px;
+    margin:0 15px 0 15px;
+    padding:10px;
+    display:flex;
+  }
+  .select_date:hover{
+    cursor: pointer;
+  }
+  /*캘린더 모달창*/
+  .calender_modal {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 2;
+  }
+  .calender_modal_content {
+    position: absolute;
+    left: 32%;
+    top: 20%;
+    width: 700px;
+    height: 500px;
+    box-shadow: 1px 1px 15px #4d5058;
+    background-color: white;
+    overflow: auto;
+    padding:10px;
+  }
+
+  /*인원 선택*/
+  .select_personnal{
+    height:50px;
+    width:200px;
+    border: solid 1px #C7C7C7;
+    border-radius: 5px;
+    padding:10px;
+    display:flex;
+  }
+  .select_personnal{
+    cursor: pointer;
+  }
+  /*인원 선택 모달창*/
+  .personnal_modal {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 2;
+  }
+  .personnal_modal_content {
+    position: absolute;
+    left: 40%;
+    top: 30%;
+    width: 400px;
+    height: 300px;
+    box-shadow: 1px 1px 15px #4d5058;
+    background-color: white;
+    overflow: auto;
+    padding:10px;
+  }
+  /*선택 박스 아이콘*/
+  .select_container i{
+    position: relative;
+    font-size:20px;
+    top:18%;
+  }
+  /*선택 박스 글자*/
+  .select_container p{
+    position:relative;
+    left:13px;
+    top:3px;
+    margin-right: 30px;
+  }
+
+  /*카드 오와열*/
+  .campground_wrap{
+    left:50%;
+    width:1150px;
+    margin:0 auto;
+  }
+  /*각 카드*/
+  .campground_item{
+    display:inline-block;
+    width:250px;
+    height:350px;
+    border: solid 1px #C7C7C7;
+    border-radius: 15px;
+    margin-left:2%;
+    margin-top:50px;
+    background-color: white;
+  }
+  .campground_item:hover{
+    cursor: pointer;
+  }
+  /*각 카드 hover효과*/
+  .campground_item:hover{
+    box-shadow: 1px 1px 15px #CBCBCB;
+  }
+  /*가장 왼쪽 카드 왼쪽 여백 없애기*/
+  .campground_item:nth-child(4n-3){
+    margin-left:0;
+  }
+  /*가장 위족 카드 위 여백 없애기*/
+  .campground_item:nth-child(-n+4){
+    margin-top:0;
+  }
+  .campground_img{
+    width:100%;
+    height:250px;
+  }
+  .campground_content{
+    border-top:solid 1px #C7C7C7;
+    height:100px;
+  }
+  .campground_contentdiv{
+    margin:5px;
+  }
+  .campground_name{
+    height:50px;
+  }
+  /*별점 css*/
+  .star-ratings {
+    color: #aaa9a9; 
+    position: relative;
+    unicode-bidi: bidi-override;
+    width: max-content;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 1.3px;
+  }
+   
+  .star-ratings-fill {
+    color: #fff58c;
+    padding: 0;
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    -webkit-text-fill-color: gold;
+  }
+   
+  .star-ratings-base {
+    z-index: 0;
+    padding: 0;
+  }
+  /*페이지네이션 css*/
+  .pagination_box{
+    margin:100px auto;
+  }
+  .pagination{
+    justify-content: center;
+  }
+  .pagination a{
+    color:black;
+  }
   </style>
-  {% endblock %}
-
+</head>
+<body>
   <!--본문 내용-->
-  {% block content %}
+  <!-------------------------------------------------base.html<--------------------------------------------->
+  <header>
+    <nav class="navbar">
+        <div class="navbar_logo">
+            <a href="{% url 'home' %}">WithCamping</a>
+        </div>
+        <ul class="navbar_menu">
+            <li><a href="">구매/대여</a></li>
+            <li><a href="">커뮤니티</a></li>
+            <li><a href="">고객센터</a></li>
+        </ul>
+        <ul class="navbar_login">
+            <!--등록된 유저가 아니라면-->
+            <li class="signUpBtn"><a href="{% url 'signUp' %}">회원가입</a></li>
+            <li class="loginBtn"><a href="{% url 'login' %}">로그인</a></li>
+        </ul>
+    </nav>
+  </header>
+  <!-------------------------------------------------base.html>----------------------------------------------->
+  <div id="container">
+    <!--body상단부-->
+    <div class="top_content">
+      <h1>WithCamping</h1>
+      <div class="searchBar">
+        <input class="searchBar_input" type="text" placeholder="캠핑장 검색">
+        <i class="fas fa-search"></i>
+      </div>
+    </div>
+    <!--지역,날짜,인원 선택 박스-->
+    <div class="select_container">
+      <!--지역 선택-->
+      <div class="select_area">
+        <i class="far fa-map"></i>
+        <p>지역 선택</p>
+        <i class="fas fa-angle-down"></i>
+      </div>
+      <!--지역 선택 모달창-->
+      <div class="area_modal">
+        <div class="area_modal_content">
+          <a href="javascript:void(0)" class="btn_close">close</a>
+          <h5>지역 선택</h5>
+        </div>
+      </div>
 
+      <!--날짜 선택-->
+      <div class="select_date">
+        <i class="far fa-calendar-alt"></i>
+        <p>2021.11.17 ~ 2021.11.18</p>
+        <i class="fas fa-angle-down"></i>
+      </div>
+      <!--캘린더 모달창-->
+      <div class="calender_modal">
+        <div class="calender_modal_content">
+          <a href="javascript:void(0)" class="btn_close">close</a>
+          <h5>날짜 선택</h5>
+        </div>
+      </div>
 
-  {% endblock %}
+      <!--인원 선택-->
+      <div class="select_personnal">
+        <i class="fas fa-user-friends"></i>
+        <p>성인: 1 아동: 0</p>
+        <i class="fas fa-angle-down"></i>
+      </div>
+      <!--인원 선택 모달창-->
+      <div class="personnal_modal">
+        <div class="personnal_modal_content">
+          <a href="javascript:void(0)" class="btn_close">close</a>
+          <h5>인원 선택</h5>
+        </div>
+      </div>
+    </div>
+    <!--캠핑장 카드 리스트-->
+    <div class="campground_wrap">
+      <ul>
+        <!--각 카드-->
+        <li class="campground_item">
+          <!--캠핑장 사진-->
+          <div class="campground_img">캠핑장 사진1</div>
+          <!--사진 밑 내용-->
+          <div class="campground_content">
+            <!--캠핑장 이름-->
+            <div class="caomground_name">캠핑장 이름</div>
+            <!--캠핑장 별점-->
+            <div class="star-ratings">
+              <div class="star-ratings-fill space-x-2 text-lg":style="{ width: ratingToPercent + '%' }">
+                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+              </div>
+              <div class="star-ratings-base space-x-2 text-lg">
+                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+              </div>
+            </div>
+            <!--캠핑장 가격-->
+            <div class="campground_price">가격</div>
+          </div>
+        </li>
+        <li class="campground_item">
+          <div class="campground_img">캠핑장 사진2</div>
+          <div class="campground_content">
+            <div class="caomground_name">캠핑장 이름</div>
+            <div class="campground_stars">별점</div>
+            <div class="campground_price">가격</div>
+          </div>
+        </li>
+        <li class="campground_item">
+          <div class="campground_img">캠핑장 사진3</div>
+          <div class="campground_content">
+            <div class="caomground_name">캠핑장 이름</div>
+            <div class="campground_stars">별점</div>
+            <div class="campground_price">가격</div>
+          </div>
+        </li>
+        <li class="campground_item">
+          <div class="campground_img">캠핑장 사진4</div>
+          <div class="campground_content">
+            <div class="caomground_name">캠핑장 이름</div>
+            <div class="campground_stars">별점</div>
+            <div class="campground_price">가격</div>
+          </div>
+        </li>
+        <li class="campground_item">
+          <div class="campground_img">캠핑장 사진5</div>
+          <div class="campground_content">
+            <div class="caomground_name">캠핑장 이름</div>
+            <div class="campground_stars">별점</div>
+            <div class="campground_price">가격</div>
+          </div>
+        </li>
+        <li class="campground_item">
+          <div class="campground_img">캠핑장 사진6</div>
+          <div class="campground_content">
+            <div class="caomground_name">캠핑장 이름</div>
+            <div class="campground_stars">별점</div>
+            <div class="campground_price">가격</div>
+          </div>
+        </li>
+        <li class="campground_item">
+          <div class="campground_img">캠핑장 사진7</div>
+          <div class="campground_content">
+            <div class="caomground_name">캠핑장 이름</div>
+            <div class="campground_stars">별점</div>
+            <div class="campground_price">가격</div>
+          </div>
+        </li>
+        <li class="campground_item">
+          <div class="campground_img">캠핑장 사진8</div>
+          <div class="campground_content">
+            <div class="caomground_name">캠핑장 이름</div>
+            <div class="campground_stars">별점</div>
+            <div class="campground_price">가격</div>
+          </div>
+        </li>
+        <li class="campground_item">
+          <div class="campground_img">캠핑장 사진9</div>
+          <div class="campground_content">
+            <div class="caomground_name">캠핑장 이름</div>
+            <div class="campground_stars">별점</div>
+            <div class="campground_price">가격</div>
+          </div>
+        </li>
+        <li class="campground_item">
+          <div class="campground_img">캠핑장 사진10</div>
+          <div class="campground_content">
+            <div class="caomground_name">캠핑장 이름</div>
+            <div class="campground_stars">별점</div>
+            <div class="campground_price">가격</div>
+          </div>
+        </li>
+        <li class="campground_item">
+          <div class="campground_img">캠핑장 사진11</div>
+          <div class="campground_content">
+            <div class="caomground_name">캠핑장 이름</div>
+            <div class="campground_stars">별점</div>
+            <div class="campground_price">가격</div>
+          </div>
+        </li>
+        <li class="campground_item">
+          <div class="campground_img">캠핑장 사진12</div>
+          <div class="campground_content">
+            <div class="caomground_name">캠핑장 이름</div>
+            <div class="campground_stars">별점</div>
+            <div class="campground_price">가격</div>
+          </div>
+        </li>
+        <li class="campground_item">
+          <div class="campground_img">캠핑장 사진13</div>
+          <div class="campground_content">
+            <div class="caomground_name">캠핑장 이름</div>
+            <div class="campground_stars">별점</div>
+            <div class="campground_price">가격</div>
+          </div>
+        </li>
+        <li class="campground_item">
+          <div class="campground_img">캠핑장 사진14</div>
+          <div class="campground_content">
+            <div class="caomground_name">캠핑장 이름</div>
+            <div class="campground_stars">별점</div>
+            <div class="campground_price">가격</div>
+          </div>
+        </li>
+        <li class="campground_item">
+          <div class="campground_img">캠핑장 사진15</div>
+          <div class="campground_content">
+            <div class="caomground_name">캠핑장 이름</div>
+            <div class="campground_stars">별점</div>
+            <div class="campground_price">가격</div>
+          </div>
+        </li>
+        <li class="campground_item">
+          <div class="campground_img">캠핑장 사진16</div>
+          <div class="campground_content">
+            <div class="caomground_name">캠핑장 이름</div>
+            <div class="campground_stars">별점</div>
+            <div class="campground_price">가격</div>
+          </div>
+        </li>
+        <li class="campground_item">
+          <div class="campground_img">캠핑장 사진17</div>
+          <div class="campground_content">
+            <div class="caomground_name">캠핑장 이름</div>
+            <div class="campground_stars">별점</div>
+            <div class="campground_price">가격</div>
+          </div>
+        </li>
+        <li class="campground_item">
+          <div class="campground_img">캠핑장 사진18</div>
+          <div class="campground_content">
+            <div class="caomground_name">캠핑장 이름</div>
+            <div class="campground_stars">별점</div>
+            <div class="campground_price">가격</div>
+          </div>
+        </li>
+        <li class="campground_item">
+          <div class="campground_img">캠핑장 사진19</div>
+          <div class="campground_content">
+            <div class="caomground_name">캠핑장 이름</div>
+            <div class="campground_stars">별점</div>
+            <div class="campground_price">가격</div>
+          </div>
+        </li>
+        <li class="campground_item">
+          <div class="campground_img">캠핑장 사진20</div>
+          <div class="campground_content">
+            <div class="caomground_name">캠핑장 이름</div>
+            <div class="campground_stars">별점</div>
+            <div class="campground_price">가격</div>
+          </div>
+        </li>
+      </ul>
+      <!----------------------------------DB적용 카드 리스트 구현---------------------
+      <div class="campground_wrap">
+        <ul>
+            {%for ~~ in ~~}
+            <li class="campground_item">
+              <img src="{{}}" class="campground_img" >
+              <div class="campground_content">
+                <div class="campground_name">{{}}</div>
+                <div class="star-ratings">{{}}</div>
+                <div class="campground_price">{{}}</div>
+              </div>
+            </li>
+            {%endfor%}  
+        </ul>
+    </div>
+    -->
+      <!--페이지네이션-->
+      <div class="pagination_box">
+        <ul class="pagination">
+          <li class="page-item"><a class="page-link" href="#"><</a></li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item"><a class="page-link" href="#">4</a></li>
+          <li class="page-item"><a class="page-link" href="#">5</a></li>
+          <li class="page-item"><a class="page-link" href="#">></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-------------------------------base.html<-------------------------------------------------->
+  <!--위로 가기/아래로 가기 버튼-->
+  <span id="toUpDown">
+    <span id="toUp">
+        <a href="#">
+        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-arrow-up-short" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5z"/>
+          </svg>
+        </a>
+    </span>
+    <span id="toDown">
+        <a href="#scrollBottom">
+        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-arrow-down-short" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5A.5.5 0 0 1 8 4z"/>
+          </svg>
+        </a>
+    </span>
+  </span>
+  <div id="scrollBottom"></div>
+    
+    <br><br>
+
+    <footer>
+        <span>
+            WithCamping<br>
+            팀 이윤박이<br>
+            대표 이메일 ｜ 
+        </span>
+        <span><br>
+            소속 ｜ 멋쟁이 사자처럼<br>
+            <br><br>
+        </span>
+        <span>
+            <br>
+            <br>
+            <br>
+            <br>
+        </span>
+    </footer>
+    <!-------------------------------base.html>---------------------------------------->
+  <script>
+    //지역 선택 모달창
+    $(document).ready(function() {
+      $(".select_area").click(function() {
+        $(".area_modal").fadeIn();
+      });
+      $(".btn_close").click(function() {
+        $(".area_modal").fadeOut();
+      });
+    });
+
+    //캘린더 모달창
+    $(document).ready(function() {
+      $(".select_date").click(function() {
+        $(".calender_modal").fadeIn();
+      });
+      $(".btn_close").click(function() {
+        $(".calender_modal").fadeOut();
+      });
+    });
+
+    //인원 선택 모달창
+    $(document).ready(function() {
+      $(".select_personnal").click(function() {
+        $(".personnal_modal").fadeIn();
+      });
+      $(".btn_close").click(function() {
+        $(".personnal_modal").fadeOut();
+      });
+    });
+
+  </script>
+</body>
+</html>

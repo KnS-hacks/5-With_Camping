@@ -13,97 +13,127 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="//code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
 
+    <title>withcamping</title>
+    
+
     <style>
-
-        @font-face {
-            font-family: 'GmarketSansLight';
-            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
-            font-weight: normal;
-            font-style: normal;
-        }
-
-        /* 링크 걸었을 때 밑줄 표시 없도록 */ 
-        a{text-decoration: none;} 
-        li{list-style: none;} 
-
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-content: center;
-            background-color: rgba( 0, 0, 0, 0 );
-            box-shadow: 0 0 4px 0 rgba( 223, 223, 223, 0.7 ); 
-            padding: 8px 12px;
-        }
-
-        .navbar_menu {
-            display: flex;
+        html{
+            color:#4d5058;
+          }
+        
+          @font-face {
+              font-family: 'MaruBuri-Regular';
+              src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.0/MaruBuri-Regular.woff') format('woff');
+              font-weight: normal;
+              font-style: normal;
+          }    
+        
+            
+          body{margin:0; padding:0; font-family: 'MaruBuri-Regular', cursive;} 
+        
+          /* 링크 걸었을 때 밑줄 표시 없도록 */ 
+          a{text-decoration: none; color: black;} 
+          li{list-style: none;} 
+        
+          .header{
+            position: sticky;
+            top:0;
+            left:0;
+            right:0;
+          }
+        
+          .navbar {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              background-color: white;
+              box-shadow: 0 0 4px 0 rgba(245, 184, 184, 0.7); 
+              padding: 8px 30px;
+              height:70px;
+          }
+        
+          .navbar_logo{
+            font-size:24px;
+            height:50px;
+          }
+        
+          .navbar_menu {
+              display: flex;
+              list-style: none;
+              padding-left: 0;
+              height:50px;
+          }
+          .navbar_menu li{
+            margin-right:30px;
+          }
+          .navbar_menu a{
+            position: relative;
+            top:25%;
+          }
+        
+          .navbar_login{
+            display:flex;
             list-style: none;
-            padding-left: 0;
-        }
-
-        .navbar_menu li{
-            padding: 8px 12px;
-        }
-        /*메뉴 마우스 올릴 때 효과*/
-        .navbar_menu li:hover {
-            background-color: rgba( 223, 223, 223);
-            border-radius: 4px;
-        }
-        .navbar_log li:hover {
-            background-color: rgba( 223, 223, 223);
-            border-radius: 4px;
-        }
-        .signUpBtn:hover {
-            background-color: rgba( 223, 223, 223);
-            border-radius: 4px;
-        }
-        .loginBtn:hover {
-            background-color: rgba( 223, 223, 223);
-            border-radius: 4px;
-        }
-        .logoutBtn:hover {
-            background-color: rgba( 223, 223, 223);
-            border-radius: 4px;
-        }
-
-        /* footer */
-        footer{
-            display: flex;
-            flex-direction: row;
-            justify-content: space-around;
-            align-items: center;
-            height: 150px;
-            width: 100%;
-            bottom:0;
-            background-color: #FFF9F2;
-
-        }
-        footer span{
-            font-size: 10px;
-            font-weight: 500;
-            color:black;
-            line-height: 30px;
-        }
-        /*위 아래 버튼*/
-        #toUpDown{
-            z-index:50;
-            display: flex;
-            flex-direction: column;
-            position:fixed;
-            right: 20px;
-            top: 50%;
-        }
-        #toUpDown span{
-            margin: 15px;
-            padding: 8px 8px;
+            height:50px;
+          }
+          .navbar_login li{
+            width:100px;
             text-align: center;
-            border: solid 1px #BEB5D3;
-            border-radius: 100%;
-            color: #9c8ebd;
-        }
-        #toUpDown span a{ color:#9c8ebd;}
-        #toUpDown span a:hover{ color:white;}
-        #toUpDown span:hover{ background-color:#BEB5D3 ;}
+          }
+          .navbar_login a{
+            position: relative;
+            top:25%;
+          }
+        
+          /*메뉴 마우스 올릴 때 효과*/
+          .navbar_menu li:hover {
+              background-color: rgba( 223, 223, 223);
+              border-radius: 4px;
+          }
+          .navbar_login li:hover {
+              background-color: rgba( 223, 223, 223);
+              border-radius: 4px;
+          }
+        
+        
+          /* footer */
+          footer{
+              display: flex;
+              flex-direction: row;
+              justify-content: space-around;
+              align-items: center;
+              height: 150px;
+              width: 100%;
+              bottom:0;
+              background-color: #FFF9F2;
+        
+          }
+          footer span{
+              font-size: 10px;
+              font-weight: 500;
+              color:black;
+              line-height: 30px;
+          }
+          /*위 아래 버튼*/
+          #toUpDown{
+              z-index:50;
+              display: flex;
+              flex-direction: column;
+              position:fixed;
+              right: 20px;
+              top: 50%;
+          }
+          #toUpDown span{
+              margin: 15px;
+              padding: 8px 8px;
+              text-align: center;
+              border: solid 1px #F2CA9C;
+              border-radius: 100%;
+              color: #F2CA9C;
+          }
+          #toUpDown span a{ color:#F2CA9C;}
+          #toUpDown span a:hover{ color:white;}
+          #toUpDown span:hover{ background-color:#F2CA9C ;}
     
     </style>
 
@@ -114,27 +144,23 @@
     <title>위드캠핑</title>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="navbar_logo">
-            <a href="{% url 'home' %}">WithCamping</a>
-        </div>
-        <ul class="navbar_menu">
-            <li><a href="">구매/대여</a></li>
-            <li><a href="">커뮤니티</a></li>
-            <li><a href="">고객센터</a></li>
-        </ul>
-        <ul class="navbar_log">
-            {% if not user.is_authenticated %} <!--등록된 유저가 아니라면-->
-            <span class="signUpBtn"><a href="{% url 'signUp' %}">회원가입</a></span>
-            <span class="loginBtn"><a href="{% url 'login' %}">로그인</a></span>
-            {% endif %}
-
-            {% if user.is_authenticated %} <!--등록된 유저가 맞다면-->
-            <span class="logoutBtn"><a href="{% url 'logout' %}">로그아웃</a></span>
-            {{user.username}}
-            {% endif %}
-        </ul>
-    </nav>
+    <header>
+        <nav class="navbar">
+            <div class="navbar_logo">
+                <a href="{% url 'home' %}">WithCamping</a>
+            </div>
+            <ul class="navbar_menu">
+                <li><a href="">구매/대여</a></li>
+                <li><a href="">커뮤니티</a></li>
+                <li><a href="">고객센터</a></li>
+            </ul>
+            <ul class="navbar_login">
+                <!--등록된 유저가 아니라면-->
+                <li class="signUpBtn"><a href="{% url 'signUp' %}">회원가입</a></li>
+                <li class="loginBtn"><a href="{% url 'login' %}">로그인</a></li>
+            </ul>
+        </nav>
+      </header>
 
     <!--위로 가기/아래로 가기 버튼-->
     <span id="toUpDown">
