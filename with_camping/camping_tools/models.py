@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-class campingTools(models.Model):
+class CampingTools(models.Model):
     name = models.CharField(max_length = 30)
     quantity = models.IntegerField(default = 10)
     rental_fee = models.IntegerField(default = 20000)
