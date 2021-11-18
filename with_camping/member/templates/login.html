@@ -1,40 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <script src="https://code.jquery.com/jquery-3.6.0.js"
-    integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-<!-- 합쳐지고 최소화된 최신 CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+{% extends 'base.html' %}
+{% load static %}
 
-<!-- 부가적인 테마 -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-
-<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login</title>
+  <!-- 이 html에 추가되는 CSS -->
+  {% block css %}
 
     <style>
   body{
-          font-family: 'MaruBuri-Regular';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.0/MaruBuri-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-          background-color:#F2EAE0 ;
+          background-color:#FFFFFC ;
         } 
-        @font-face {
-    font-family: 'MaruBuri-Regular';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.0/MaruBuri-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}      
-
-
+    
 .loginform{
-	background-color: white;
+	background-color: #FFFFFC;
     margin-top: 100px;
 	margin-right: 400px;
 	margin-left: 400px;
@@ -77,65 +53,30 @@
             margin-left: 100px;
         }
     </style>
-</head>
-<body>
-   <!-- 로그인/회원가입 네비게이션 바 -->
-   <nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="   ">로고</a>
-            <!--메인 화면으로 넘어가는 링트 달기 -->
-            <!--로고 사진 넣기 -->
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href=#>캠핑장 예약</a></li>
-                <!--예약페이지 링크 달기 -->
-                <li><a href=#>캠핑용품 구매/대여</a></li>
-                <!--캠핑용품 구매/대여 -->
-                <li><a href=#>로그인</a></li>
-                <!--로그인 링크 달기 -->
-                <!-- <li><a href=#>Logout</a></li> -->
-                <li><a href="   ">회원가입</a></li>
-                <!--회원가입 링크 -->
-            </ul>
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-</nav>
-
+    {% endblock %}
+  
+  <!--본문 내용-->
+  {% block content %}
     
     <div>
         <form class="loginform" action="{% url 'member_login' %}" method="POST">
-            {% csrf_token %}
             <div id="loging">
                 <h1 style="text-align: center;">로그인</h1>
                 <br>  <br>
                 <!-- 아이디 -->
                 <div class="form-group">
-                    <input type="text" class="form-control" id="username" placeholder="아이디" name="username">
+                    <input type="text" class="form-control" id="userid" placeholder="아이디" name="userid">
                 </div>
                 <!-- 비밀번호 -->
                 <div class="form-group">
-                    <input type="password" class="form-control" id="password" placeholder="비밀번호" name="password">
+                    <input type="password" class="form-control" id="password1" placeholder="비밀번호" name="password1">
                 </div>
                 <br>
                 
                 <button type="submit" class="loginbtn" value="login">로그인</button>
-                <p>{{ error }}</p>
             </div>
         </form>
 
     </div> 
 
-</body>
-</html>
+    {% endblock %}
