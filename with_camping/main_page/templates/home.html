@@ -8,7 +8,7 @@
 
   #container {
     height:3000px;
-    background-color: #FFFFFD;
+    background-color: #FFFFFC;
   }
   
   .top_content{
@@ -111,7 +111,7 @@
     height: 300px;
     background-color: white;
     overflow: auto;
-    padding:8 15px;
+    padding:8px 15px;
     box-shadow: 1px 1px 15px #4d5058;
   }
   .area_modal_content h5{
@@ -143,6 +143,9 @@
   /*공동 x버튼*/
   .btn_close{
     float: right;
+  }
+  .btn_close:hover{
+    background-color: #aaa9a9;
   }
   
   /*날짜 선택*/
@@ -269,12 +272,13 @@
     border-top:solid 1px #C7C7C7;
     height:100px;
   }
-  .campground_contentdiv{
+  .campground_name{
     margin:5px;
   }
-  .campground_name{
-    height:50px;
+  .campground_price{
+    margin:5px;
   }
+
   /*별점 css*/
   .star-ratings {
     color: #aaa9a9; 
@@ -316,6 +320,7 @@
   
   <!--본문 내용-->
   {% block content %}
+  <div id="container">
     <!--body상단부-->
     <div class="top_content">
       <h1>WithCamping</h1>
@@ -403,13 +408,14 @@
     <div class="campground_wrap">
       <ul>
         <!--각 카드-->
+        {%for campground_img in campground_imgs %}
         <li class="campground_item">
           <!--캠핑장 사진-->
-          <div class="campground_img">캠핑장 사진1</div>
+          <img src="" class="campground_img">
           <!--사진 밑 내용-->
           <div class="campground_content">
             <!--캠핑장 이름-->
-            <div class="caomground_name">캠핑장 이름</div>
+            <div class="campground_name">캠핑장 이름</div>
             <!--캠핑장 별점-->
             <div class="star-ratings">
               <div class="star-ratings-fill space-x-2 text-lg":style="{ width: ratingToPercent + '%' }">
@@ -423,158 +429,7 @@
             <div class="campground_price">가격</div>
           </div>
         </li>
-        <li class="campground_item">
-          <div class="campground_img">캠핑장 사진2</div>
-          <div class="campground_content">
-            <div class="caomground_name">캠핑장 이름</div>
-            <div class="campground_stars">별점</div>
-            <div class="campground_price">가격</div>
-          </div>
-        </li>
-        <li class="campground_item">
-          <div class="campground_img">캠핑장 사진3</div>
-          <div class="campground_content">
-            <div class="caomground_name">캠핑장 이름</div>
-            <div class="campground_stars">별점</div>
-            <div class="campground_price">가격</div>
-          </div>
-        </li>
-        <li class="campground_item">
-          <div class="campground_img">캠핑장 사진4</div>
-          <div class="campground_content">
-            <div class="caomground_name">캠핑장 이름</div>
-            <div class="campground_stars">별점</div>
-            <div class="campground_price">가격</div>
-          </div>
-        </li>
-        <li class="campground_item">
-          <div class="campground_img">캠핑장 사진5</div>
-          <div class="campground_content">
-            <div class="caomground_name">캠핑장 이름</div>
-            <div class="campground_stars">별점</div>
-            <div class="campground_price">가격</div>
-          </div>
-        </li>
-        <li class="campground_item">
-          <div class="campground_img">캠핑장 사진6</div>
-          <div class="campground_content">
-            <div class="caomground_name">캠핑장 이름</div>
-            <div class="campground_stars">별점</div>
-            <div class="campground_price">가격</div>
-          </div>
-        </li>
-        <li class="campground_item">
-          <div class="campground_img">캠핑장 사진7</div>
-          <div class="campground_content">
-            <div class="caomground_name">캠핑장 이름</div>
-            <div class="campground_stars">별점</div>
-            <div class="campground_price">가격</div>
-          </div>
-        </li>
-        <li class="campground_item">
-          <div class="campground_img">캠핑장 사진8</div>
-          <div class="campground_content">
-            <div class="caomground_name">캠핑장 이름</div>
-            <div class="campground_stars">별점</div>
-            <div class="campground_price">가격</div>
-          </div>
-        </li>
-        <li class="campground_item">
-          <div class="campground_img">캠핑장 사진9</div>
-          <div class="campground_content">
-            <div class="caomground_name">캠핑장 이름</div>
-            <div class="campground_stars">별점</div>
-            <div class="campground_price">가격</div>
-          </div>
-        </li>
-        <li class="campground_item">
-          <div class="campground_img">캠핑장 사진10</div>
-          <div class="campground_content">
-            <div class="caomground_name">캠핑장 이름</div>
-            <div class="campground_stars">별점</div>
-            <div class="campground_price">가격</div>
-          </div>
-        </li>
-        <li class="campground_item">
-          <div class="campground_img">캠핑장 사진11</div>
-          <div class="campground_content">
-            <div class="caomground_name">캠핑장 이름</div>
-            <div class="campground_stars">별점</div>
-            <div class="campground_price">가격</div>
-          </div>
-        </li>
-        <li class="campground_item">
-          <div class="campground_img">캠핑장 사진12</div>
-          <div class="campground_content">
-            <div class="caomground_name">캠핑장 이름</div>
-            <div class="campground_stars">별점</div>
-            <div class="campground_price">가격</div>
-          </div>
-        </li>
-        <li class="campground_item">
-          <div class="campground_img">캠핑장 사진13</div>
-          <div class="campground_content">
-            <div class="caomground_name">캠핑장 이름</div>
-            <div class="campground_stars">별점</div>
-            <div class="campground_price">가격</div>
-          </div>
-        </li>
-        <li class="campground_item">
-          <div class="campground_img">캠핑장 사진14</div>
-          <div class="campground_content">
-            <div class="caomground_name">캠핑장 이름</div>
-            <div class="campground_stars">별점</div>
-            <div class="campground_price">가격</div>
-          </div>
-        </li>
-        <li class="campground_item">
-          <div class="campground_img">캠핑장 사진15</div>
-          <div class="campground_content">
-            <div class="caomground_name">캠핑장 이름</div>
-            <div class="campground_stars">별점</div>
-            <div class="campground_price">가격</div>
-          </div>
-        </li>
-        <li class="campground_item">
-          <div class="campground_img">캠핑장 사진16</div>
-          <div class="campground_content">
-            <div class="caomground_name">캠핑장 이름</div>
-            <div class="campground_stars">별점</div>
-            <div class="campground_price">가격</div>
-          </div>
-        </li>
-        <li class="campground_item">
-          <div class="campground_img">캠핑장 사진17</div>
-          <div class="campground_content">
-            <div class="caomground_name">캠핑장 이름</div>
-            <div class="campground_stars">별점</div>
-            <div class="campground_price">가격</div>
-          </div>
-        </li>
-        <li class="campground_item">
-          <div class="campground_img">캠핑장 사진18</div>
-          <div class="campground_content">
-            <div class="caomground_name">캠핑장 이름</div>
-            <div class="campground_stars">별점</div>
-            <div class="campground_price">가격</div>
-          </div>
-        </li>
-        <li class="campground_item">
-          <div class="campground_img">캠핑장 사진19</div>
-          <div class="campground_content">
-            <div class="caomground_name">캠핑장 이름</div>
-            <div class="campground_stars">별점</div>
-            <div class="campground_price">가격</div>
-          </div>
-        </li>
-        <li class="campground_item">
-          <div class="campground_img">캠핑장 사진20</div>
-          <div class="campground_content">
-            <div class="caomground_name">캠핑장 이름</div>
-            <div class="campground_stars">별점</div>
-            <div class="campground_price">가격</div>
-          </div>
-        </li>
+        {%endfor%}
       </ul>
 
       <!--페이지네이션-->
