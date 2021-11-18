@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from .models import Member
 from django.contrib import auth
+from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 
 # 로그인(default)
