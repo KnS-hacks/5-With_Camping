@@ -17,7 +17,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>login</title>
 
-    <!-- <link rel="stylesheet" href="{% static 'login.css' %}"> -->
     <style>
   body{
           font-family: 'MaruBuri-Regular';
@@ -116,7 +115,7 @@
 
     
     <div>
-        <form class="loginform" action="{%url 'login'%}" method="POST">
+        <form class="loginform" action="{% url 'member_login' %}" method="POST">
             <div id="loging">
                 <h1 style="text-align: center;">로그인</h1>
                 <br>  <br>
