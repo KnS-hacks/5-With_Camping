@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+
+  <!-- 이 html에 추가되는 CSS -->
+  {% block css %}
+
+  <style>
+      .order_finish_box{
+          width: 700px;
+          height: 500px;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          margin: -250px 0 0 -350px;
+          /* display: block;
+          margin: 0 auto; */
+          
+      }
+      .order_finish{
+          text-align: center;
+          margin-top: auto;
+      }
+      .go_home{
+            line-height:30px;
+            text-align:center;
+            vertical-align:middle;
+            display:inline-block;
+            font-size:15px;
+            color:#f8f8f8;
+            width:200px;
+            height:40px;
+            padding-top: 5px;
+            border-width:2px;
+            border-style:solid;
+            background-color: rgb(177, 160, 135);
+            display: block;
+            margin: auto;
+            margin-top: 50px;
+        }
+   
+  </style>
+   {% endblock %}
+  
+   <!--본문 내용-->
+   {% block content %}
+  <body>
+    <div class="order_finish_box">
+        <div class="order_finish">
+            <h3>결제 완료되었습니다.</h3>
+        </div>
+        <hr ALIGN="center" style="border: solid 1px #908989;">
+
+        <div>
+            <h4><strong>주문 일자</strong></h4>
+            <!-- 주문일자 -->
+        </div>
+        <hr ALIGN="center" style="border: solid 1px #908989;">
+
+        <div>
+            <h4><strong>상품 및 이용정보</strong></h4>
+            <!-- 상품 이미지 및 정보 -->
+        </div>
+        <hr ALIGN="center" style="border: solid 1px #908989;">
+
+        <div>
+            <h4><strong>상품금액(수량)</strong></h4>
+            <!-- 상품 금액 및 수량 -->
+        </div>
+        <hr ALIGN="center" style="border: solid 1px #908989;">
+    
+        <div>
+            <a href="{% url 'home' %}" role="button" class="go_home">홈으로</a>
+        </div>
+    </div>
+
+  </body>
+
+  {% endblock %}
