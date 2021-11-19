@@ -8,40 +8,73 @@
   body{
           background-color:#FFFFFC;
         } 
-    
+
 .loginform{
-	background-color: #FFFFFC;
-	text-align: center;
+    background-color: #FFFFFC;
+    text-align: center;
     margin-top: 150px;
 }
 
 #loging{
-	padding-top: 0;
-	height: 600px;
+    padding-top: 0;
+    height: 600px;
 }
 #loging h1 {
     margin-bottom: 90px;
 }
 
 .loginbtn {
-	text-decoration:none;
-	font-family:Arial;
-	text-indent:0px;
-	line-height:30px;
-	-moz-border-radius:0px;
-	-webkit-border-radius:0px;
-	border-radius:0px;
-	text-align:center;
-	vertical-align:middle;
-	display:inline-block;
-	font-size:20px;
-	color:white;
-	width:289px;
-	height:50px;
-	padding:13px;
-	border-color:#fcfcfc;
-	border-width:2px;
-	border-style:solid;
-	background-color: #FFF9DC;
+    text-decoration:none;
+    font-family:Arial;
+    text-indent:0px;
+    line-height:30px;
+    -moz-border-radius:0px;
+    -webkit-border-radius:0px;
+    border-radius:0px;
+    text-align:center;
+    vertical-align:middle;
+    display:inline-block;
+    font-size:20px;
+    color:#f8f8f8;
+    width:289px;
+    height:50px;
+    padding:13px;
+    border-color:#fcfcfc;
+    border-width:2px;
+    border-style:solid;
+    background-color: rgb(49, 130, 223);
     margin-top:10px;
 }
+.form-group{
+            width: 500px;
+            height: 50px;
+            margin: 0 auto;
+            margin-bottom: 10px;
+        }
+    </style>
+    {% endblock %}
+
+  <!--본문 내용-->
+  {% block content %}
+
+        <form class="loginform" action="{% url 'member_login' %}" method="POST">
+            {% csrf_token %}
+            <div id="loging">
+                <h1 style="text-align: center;">로그인</h1>
+                <br>  <br>
+                <!-- 아이디 -->
+                <div class="form-group">
+                    <input type="text" class="form-control" id="username" placeholder="아이디" name="username">
+                </div>
+                <!-- 비밀번호 -->
+                <div class="form-group">
+                    <input type="password" class="form-control" id="password" placeholder="비밀번호" name="password">
+                </div>
+                <br>
+                <button type="submit" class="loginbtn" value="login">로그인</button>
+                <p>{{ error }}</p>
+            </div>
+        </form>
+
+
+    {% endblock %}

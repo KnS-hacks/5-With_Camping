@@ -19,7 +19,7 @@ class CampingTools(models.Model):
     image = models.ImageField(default = 'static/lantern.jpg')
 
     def __str__(self) :
-        return self.title
+        return self.name
 
 class OrderList(models.Model) :
     order_Member = models.ForeignKey('member.Member', on_delete=models.CASCADE)
