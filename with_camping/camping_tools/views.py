@@ -8,12 +8,15 @@ from django.http import HttpResponse
 # 캠핑용품 목록
 def camping_tool(request):
     camping_tools = CampingTools.objects.all()
+    # camping_tools = get_object_or_404(CampingTools, pk = id)
     return render (request, 'camping_tools.html', {'camping_tools':camping_tools})
 
 # 특정 캠핑용품의 세부사항
 def camping_tool_detail(request, id):
-    camping_tools = get_object_or_404(CampingTools, pk = id)
-    return render(request, 'camping_tools_detail.html', {'camping_tools':camping_tools})
+    camping_tools = get_object_or_404(CampingTools, id = id)
+    user_id = request.user.id
+    
+    return render(request, 'camping_tools_detail.html', {'camping_tools':camping_tools, 'user':user_id})
 
 # 특정 캠핑용품 대여
 def rent_camping_tool(request):
@@ -23,13 +26,13 @@ def rent_camping_tool(request):
 
 # 특정 캠핑용품 구매
 def purchase_camping_tool(request, id, user_id):
-    campingtools = get_object_or_404(CampingTools, pk=id)
+    camping_tools = get_object_or_404(CampingTools, pk = id)
     new_order = OrderList()
     user = Member.objects.get(id = user_id)
     new_order.order_Member = user
-    new_order.order_List = campingtools
+    new_order.order_List = camping_tools
     new_order.save() 
-    return render(request, 'orderFinish.html', {'new_order':new_order})
+    return render(request, 'order_finish.html', {'new_order':new_order})
 
 # 캠핑용품 주문 내역 (결제 창)
 def order_list(request, user_id) : 

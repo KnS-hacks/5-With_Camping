@@ -194,8 +194,8 @@
                 </th>
                 <th style="width: 450px;">
                     <div style="margin-top: 30px; margin-left: 30px;">
-                        <h3 style="margin-top: 50px;"><strong>메이튼 레드와일드 캠핑 텐트 오두막</strong></h3>
-                        <h3 style="margin-left: 270px; margin-top: 40px;"><strong>330,000원</strong></h3>
+                        <h3 style="margin-top: 50px;"><strong>{{ camping_tools.name }}</strong></h3>
+                        <h3 style="margin-left: 270px; margin-top: 40px;"><strong>{{ camping_tools.price }}원</strong></h3>
                         <div class="card_discount">
                             <img src="card.png" alt="카드" style="width: 25px; margin-left: 10px; margin-top: 5px;"> 
                             <h5 style="margin-left: 55px; margin-top: -19px;">롯데카드 간편결제 시 5% 청구할인(최대 1만원)</h5> 
@@ -213,14 +213,18 @@
                         <div id='result'  id="result">0</div>
                         <input type='button' id="plus_btn"  onclick='count("plus")' value='+' />
 
-                        <h5 style="margin-left: 220px; margin-top: 30px;">총 상품 금액&nbsp&nbsp|&nbsp&nbsp330,000원</h5>    <!--계산되게 바꾸기 -->
+                        <h5 style="margin-left: 220px; margin-top: 30px;">총 상품 금액&nbsp&nbsp|&nbsp&nbsp{{ camping_tools.price }}원</h5>    <!--계산되게 바꾸기 -->
                         <hr style="width: 390px; margin-top: 30px;">
-                        <a href="{% url 'purchase_camping_tool' %}" class="purchase_btn" role="button">구매하기</a>
-                        <a href="{% url 'rent_camping_tool' %}" class="shopping_basket" role="button">빌리기</a>
+                        <!-- {% if user.is_authenticated %} -->
+                        <a href="{% url 'purchase_camping_tool' camping_tools.id user.id %}" class="purchase_btn" role="button"><input type="button" value="구매하기"></a> 
+                        <!-- {% endif %} -->
+                        <a href="" class="shopping_basket" role="button">빌리기</a> 
                     </div>
                     </div>
                 </th>
             </tr>
+            <!-- {% url 'rent_camping_tool' %}
+                <!-- {% url 'purchase_camping_tool' %} -->
         </table>
         <div style="margin-left: 200px; margin-top: 20px;">
             <img src="tent_detail1.jpg" alt="">
