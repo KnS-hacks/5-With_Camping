@@ -259,8 +259,7 @@
   .campground_img{
     width:100%;
     height:250px;
-  }
-  .campground_content{
+  
     border-top:solid 1px #C7C7C7;
     height:100px;
   }
@@ -402,11 +401,14 @@
       <ul>
         <!--각 카드-->
         {% for campground in campgrounds %}
+        <a href="reservation_detail.html">
         <li class="campground_item">
           <!--캠핑장 사진-->
-          <img src="" class="campground_img">
+          <div style="background-image: url({{campground.desc_img.url}}); width:100%; height: auto;"></div>
+          <img src="{{campground.desc_img.url}}" class="campground_img">
+          {{campground.desc_img.url}}
           <!--사진 밑 내용-->
-          {{campground.desc_img}}
+          
           <div class="campground_content">
             <!--캠핑장 이름-->
             <div class="campground_name">{{campground.name}}</div>
@@ -419,7 +421,8 @@
             <div class="campground_price">{{campground.price}}</div>
           </div>
         </li>
-        {%endfor%}
+      </a>
+      {%endfor%}
       </ul>
 
       <!--페이지네이션-->
@@ -435,6 +438,7 @@
         </ul>
       </div>
     </div>
+  
   </div>
    
   <!----------------------------------script-------------------------------->

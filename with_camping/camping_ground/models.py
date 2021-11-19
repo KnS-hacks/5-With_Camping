@@ -13,6 +13,6 @@ class CampingGround(models.Model):
     longitude = models.FloatField(default = 0.0)
 
     body = models.CharField(max_length = 300)
-    desc_img = models.ImageField(default = 'static/lantern.jpg')
+    desc_img = models.ImageField(upload_to='desc_img', blank=True, null=True)
     rate = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)], default = 1)
-    price = models.IntegerField(default=100000)
+    price = models.IntegerField(default=10000)

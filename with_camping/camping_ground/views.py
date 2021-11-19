@@ -1,8 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
-from camping_ground.models import CampingGround
-
 # Create your views here.
 # 캠핑장 목록
 def camping_ground_list(request):
