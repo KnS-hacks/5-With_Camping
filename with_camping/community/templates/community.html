@@ -21,8 +21,8 @@
         }
     
         #title {
-            margin-left: 620px;
-            margin-top: 50px;
+            text-align: center;
+            margin:50px;
         }
     
         .community_box1 {
@@ -126,9 +126,14 @@
     <h4 style="margin-left: 500px; margin-top: 20px;">"여러분들의 소중한 추억을 기록해보세요"</h4>
     <br>
 
+    <form class="write_button" action="{% url 'write' %}" method="POST">
+        {% csrf_token %}
+        <button type="submit" class="writebtn" value="write">글쓰기</button>
+    </form>
+
     <canvas id="canvas" width="1400px" height="1000px"></canvas>
 
-    <img src="peg.png" style="width: 30px; height: 50px;  margin-top:-1850px; margin-left: 270px;">
+    <img src='{% static "peg.png" %}'' style="width: 30px; height: 50px;  margin-top:-1850px; margin-left: 270px;">
     <div class="community_box1" >
         <div class="review_image" style="margin-left: 15px;">
             <img src="camping_review2.jpg" alt="" style="width: 200px; height: 200px;  margin-top:10px;">
@@ -192,7 +197,6 @@
     <img src="camping_back2.png" alt="" id="camping_back2">
     <img src="camping_back3.png" alt="" id="camping_back3">
 
-    <a href="{% url 'create' %}"><button type="submit" class="write_btn" value="button">글쓰기</button>
 
     <script type="text/javascript">
         // window.onload = function(){

@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .forms import BulletinPostForm
 from .models import *
+from member.models import Member
 
 # Create your views here.
 # 캠핑 커뮤니티 게시판
@@ -17,14 +18,16 @@ def camping_ground(request):
 def free(request):
     return HttpResponse("Bulletin board of free topic")
 
-def create(request):
+def write(request):
     if request.method == 'POST': # method가 post일때
-        form = BulletinPostForm(request.POST) # form 에 ReviewForm 할당
-
-        if form.is_valid(): # form 유효성 검증
-            form.save() # 저장
-            return redirect('community.html') # 다시 main으로
+        new_write = BulletinPost()
+        new_write.title = request.POST['title']
+        new_write.image = request.FILES.get('image')
+        new_write.body = request.POST['body']
+        user_id = request.user.id
+        user = Member.objects.get(id = user_id)
+        new_write.author = user
+        new_write.save()
+        return redirect('home')
     else:
-        form = BulletinPostForm() # 빈 form 열기
-
-    return render(request, 'create.html',{'form' :form})
+        return render(request, 'write.html')

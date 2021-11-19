@@ -11,12 +11,15 @@ def camping_tool(request):
     return render (request, 'camping_tools.html', {'camping_tools':camping_tools})
 
 # 특정 캠핑용품의 세부사항
-def camping_tool_detail(request):
-    return HttpResponse('Details of specific camping tool')
+def camping_tool_detail(request, id):
+    camping_tools = get_object_or_404(CampingTools, pk = id)
+    return render(request, 'camping_tools_detail.html', {'camping_tools':camping_tools})
 
 # 특정 캠핑용품 대여
 def rent_camping_tool(request):
     return HttpResponse('Rent a camping tool')
+
+#############################################################
 
 # 특정 캠핑용품 구매
 def purchase_camping_tool(request, id, user_id):
