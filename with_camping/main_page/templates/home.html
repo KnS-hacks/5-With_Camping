@@ -410,11 +410,7 @@
             <div class="campground_name">{{campground.name}}</div>
             <!--캠핑장 별점-->
             <div class="star-ratings">
-              <div class="star-ratings-fill space-x-2 text-lg":style="{ width: ratingToPercent + '%' }">
-                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-              </div>
-              <div class="star-ratings-base space-x-2 text-lg">
-                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+              {{campground.rate}} / 5
               </div>
             </div>
             <!--캠핑장 가격-->

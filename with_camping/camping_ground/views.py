@@ -6,9 +6,7 @@ from camping_ground.models import CampingGround
 # Create your views here.
 # 캠핑장 목록
 def camping_ground_list(request):
-    campgrounds = CampingGround.objects
-    context = {"campgrounds":campgrounds}
-    return render(request, "home.html")
+    return HttpResponse('Camping ground list')
 
 # 특정 캠핑장의 세부사항
 def camping_ground_detail(request):
