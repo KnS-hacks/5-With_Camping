@@ -401,12 +401,11 @@
       <ul>
         <!--각 카드-->
         {% for campground in campgrounds %}
-        <a href="reservation_detail.html">
+        <a href="/detail">
         <li class="campground_item">
           <!--캠핑장 사진-->
           <div style="background-image: url({{campground.desc_img.url}}); width:100%; height: auto;"></div>
           <img src="{{campground.desc_img.url}}" class="campground_img">
-          {{campground.desc_img.url}}
           <!--사진 밑 내용-->
           
           <div class="campground_content">

@@ -11,4 +11,6 @@ def home (request) :
     context = {"campgrounds":campgrounds}
     return render(request, "home.html", context)
 
-
+# 특정 캠핑장의 세부사항
+def detail(request):
+    return render(request, "reservation_detail.html")
