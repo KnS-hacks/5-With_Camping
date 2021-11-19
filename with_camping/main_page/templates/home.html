@@ -1,28 +1,28 @@
 {% extends 'base.html' %}
 {% load static %}
 
-  <!-- 이 html에 추가되는 CSS -->
-  {% block css %}
+<!-- 이 html에 추가되는 CSS -->
+{% block css %}
 
-  <style>
-
+<style>
   #container {
-    height:3000px;
+    height: 3000px;
     background-color: #FFFFFC;
   }
-  
-  .top_content{
-    height:630px;
-    background: linear-gradient(to bottom, rgba(225,225,225,0) 50%,
-    rgba(225,225,225,0.6) 75%,rgba(225,225,225,1) 100%),url('{% static "homeimg.jpg" %}');
+
+  .top_content {
+    height: 630px;
+    background: linear-gradient(to bottom, rgba(225, 225, 225, 0) 50%,
+      rgba(225, 225, 225, 0.6) 75%, rgba(225, 225, 225, 1) 100%),
+    url('{% static "homeimg.jpg" %}');
     background-repeat: no-repeat;
     background-size: cover;
-    width:100%;
+    width: 100%;
   }
 
   h1 {
-    margin:0 auto;
-    padding-top:50px;
+    margin: 0 auto;
+    padding-top: 50px;
     font-size: 100px;
     font-weight: normal;
     font-stretch: normal;
@@ -32,65 +32,76 @@
     text-align: center;
     color: #f5f5f5;
   }
+
   /*검색바 css*/
-  .searchBar{
+  .searchBar {
     position: relative;
-    left:50%;
+    left: 50%;
     margin: 340px 0 0 -300px;
     width: 600px;
   }
-  .searchBar i{
-    position:absolute;
+
+  .searchBar i {
+    position: absolute;
     top: 17px;
-    left:18px;
-    color:white;
+    left: 18px;
+    color: white;
   }
-  .searchBar_input{
+
+  .searchBar_input {
     height: 50px;
-    width:100%;
+    width: 100%;
     box-sizing: border-box;
-    display:inline-block;
-    font-size:20px;
+    display: inline-block;
+    font-size: 20px;
     transition: .5s;
     border: solid 3px #fff;
     background-color: rgba(245, 245, 245, 0);
     box-shadow: 2px 2px 20px #C9C9C9;
     padding: 0 40px;
   }
-  .searchBar_input[type="text"]{
+
+  .searchBar_input[type="text"] {
     position: relative;
     border-radius: 25px;
     cursor: pointer;
-    color:black;
+    color: black;
   }
-  .searchBar_input::placeholder{
+
+  .searchBar_input::placeholder {
     color: white;
   }
+
   /*지역, 날짜, 인원 설정 css*/
-  .select_container{
-    display:flex;
+  .select_container {
+    display: flex;
     width: 730px;
-    margin:100px auto;
+    margin: 100px auto;
   }
-  .select-container div{
+
+  .select-container div {
     background-color: #FFFFFD;
   }
-  .select_container div:hover{
-    background-color:#EFEFEF;
+
+  .select_container div:hover {
+    background-color: #EFEFEF;
   }
+
   /*지역 선택*/
-  .select_area{
-    height:50px;
-    width:160px;
+  .select_area {
+    height: 50px;
+    width: 160px;
     border: solid 1px #C7C7C7;
     border-radius: 5px;
-    padding:10px;
-    display:flex;
+    padding: 10px;
+    display: flex;
     margin-left: 20px;
   }
-  .select_area:hover{
+
+  .select_area:hover {
     cursor: pointer;
   }
+
   /*지역 선택 모달창*/
   .area_modal {
     display: none;
@@ -102,6 +113,7 @@
     background-color: rgba(0, 0, 0, 0.4) !important;
     z-index: 2;
   }
+
   .area_modal_content {
     position: absolute;
     left: 37%;
@@ -110,78 +122,103 @@
     height: 300px;
     background-color: white;
     overflow: auto;
-    padding:8px 15px;
+    padding: 8px 15px;
     box-shadow: 1px 1px 15px #4d5058;
   }
-  .area_modal_content h5{
+
+  .area_modal_content h5 {
     margin: 10px;
   }
-  .tg  {
-    border-collapse:collapse;
-    border-spacing:0;
-    margin:40px auto;
+
+  .tg {
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin: 40px auto;
   }
-  .tg td{
-    border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-    overflow:hidden;padding:10px 5px;word-break:normal;
+
+  .tg td {
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    overflow: hidden;
+    padding: 10px 5px;
+    word-break: normal;
   }
-  .tg td{
-    border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-    font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;
-    width:80px;
-    height:50px;
+
+  .tg td {
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    overflow: hidden;
+    padding: 10px 5px;
+    word-break: normal;
+    width: 80px;
+    height: 50px;
   }
-  .tg td:hover{
+
+  .tg td:hover {
     cursor: pointer;
-    background-color:#C7C7C7;
+    background-color: #C7C7C7;
   }
-  .tg .tg-0pky{
-    border-color:inherit;
-    text-align:center;
-    vertical-align:middle;
+
+  .tg .tg-0pky {
+    border-color: inherit;
+    text-align: center;
+    vertical-align: middle;
   }
 
   /*공동 x버튼*/
-  .btn_close{
+  .btn_close {
     float: right;
   }
-  .btn_close:hover{
+
+  .btn_close:hover {
     background-color: #aaa9a9;
   }
-  
+
   /*날짜 선택*/
-  .select_date{
-    height:50px;
-    width:320px;
+  .select_date {
+    height: 50px;
+    width: 320px;
     border: solid 1px #C7C7C7;
     border-radius: 5px;
-    margin:0 15px 0 15px;
-    padding:10px;
-    display:flex;
+    margin: 0 15px 0 15px;
+    padding: 10px;
+    display: flex;
   }
-  .select_date:hover{
+
+  .select_date:hover {
     cursor: pointer;
   }
-  .select_date input{
-    width:110px;
+
+  .select_date input {
+    width: 110px;
     text-align: center;
   }
-  .select_date i{
+
+  .select_date i {
     margin-right: 10px;
   }
 
   /*인원 선택*/
-  .select_personnal{
-    height:50px;
-    width:200px;
+  .select_personnal {
+    height: 50px;
+    width: 200px;
     border: solid 1px #C7C7C7;
     border-radius: 5px;
-    padding:10px;
-    display:flex;
+    padding: 10px;
+    display: flex;
   }
-  .select_personnal{
+
+  .select_personnal {
     cursor: pointer;
   }
+
   /*인원 선택 모달창*/
   .personnal_modal {
     display: none;
@@ -193,6 +230,7 @@
     background-color: rgba(0, 0, 0, 0.4) !important;
     z-index: 2;
   }
+
   .personnal_modal_content {
     position: absolute;
     left: 40%;
@@ -202,84 +240,96 @@
     box-shadow: 1px 1px 15px #4d5058;
     background-color: white;
     overflow: auto;
-    padding:10px;
+    padding: 10px;
   }
-  .input_adult{
-    margin:70px 30px 30px 50px;
+
+  .input_adult {
+    margin: 70px 30px 30px 50px;
   }
-  .input_child{
-    margin:30px 30px 30px 50px;
+
+  .input_child {
+    margin: 30px 30px 30px 50px;
   }
+
   /*선택 박스 아이콘*/
-  .select_container i{
+  .select_container i {
     position: relative;
-    font-size:20px;
-    top:18%;
+    font-size: 20px;
+    top: 18%;
   }
+
   /*선택 박스 글자*/
-  .select_container p{
-    position:relative;
-    left:13px;
-    top:3px;
+  .select_container p {
+    position: relative;
+    left: 13px;
+    top: 3px;
     margin-right: 30px;
   }
 
   /*카드 오와열*/
-  .campground_wrap{
-    left:50%;
-    width:1150px;
-    margin:0 auto;
+  .campground_wrap {
+    left: 50%;
+    width: 1150px;
+    margin: 0 auto;
   }
+
   /*각 카드*/
-  .campground_item{
-    display:inline-block;
-    width:250px;
-    height:350px;
+  .campground_item {
+    display: inline-block;
+    width: 250px;
+    height: 350px;
     border: solid 1px #C7C7C7;
     border-radius: 15px;
-    margin-left:2%;
-    margin-top:50px;
+    margin-left: 2%;
+    margin-top: 50px;
     background-color: white;
   }
-  .campground_item:hover{
+
+  .campground_item:hover {
     cursor: pointer;
   }
+
   /*각 카드 hover효과*/
-  .campground_item:hover{
+  .campground_item:hover {
     box-shadow: 1px 1px 15px #CBCBCB;
   }
+
   /*가장 왼쪽 카드 왼쪽 여백 없애기*/
-  .campground_item:nth-child(4n-3){
-    margin-left:0;
+  .campground_item:nth-child(4n-3) {
+    margin-left: 0;
   }
+
   /*가장 위족 카드 위 여백 없애기*/
-  .campground_item:nth-child(-n+4){
-    margin-top:0;
+  .campground_item:nth-child(-n+4) {
+    margin-top: 0;
   }
-  .campground_img{
-    width:100%;
-    height:250px;
-  
-    border-top:solid 1px #C7C7C7;
-    height:100px;
+
+  .campground_img {
+    width: 100%;
+    height: 250px;
+
+    border-top: solid 1px #C7C7C7;
+    height: 100px;
   }
-  .campground_name{
-    margin:5px;
+
+  .campground_name {
+    margin: 5px;
   }
-  .campground_price{
-    margin:5px;
+
+  .campground_price {
+    margin: 5px;
   }
 
   /*별점 css*/
   .star-ratings {
-    color: #aaa9a9; 
+    color: #aaa9a9;
     position: relative;
     unicode-bidi: bidi-override;
     width: max-content;
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke-width: 1.3px;
   }
-   
+
   .star-ratings-fill {
     color: #fff58c;
     padding: 0;
@@ -291,210 +341,232 @@
     overflow: hidden;
     -webkit-text-fill-color: gold;
   }
-   
+
   .star-ratings-base {
     z-index: 0;
     padding: 0;
   }
+
   /*페이지네이션 css*/
-  .pagination_box{
-    margin:100px auto;
+  .pagination_box {
+    margin: 100px auto;
   }
-  .pagination{
+
+  .pagination {
     justify-content: center;
   }
-  .pagination a{
-    color:black;
+
+  .pagination a {
+    color: black;
   }
-  </style>
-  {% endblock %}
-  
-  <!--본문 내용-->
-  {% block content %}
-  <div id="container">
-    <!--body상단부-->
-    <div class="top_content">
-      <h1>WithCamping</h1>
-      <div class="searchBar">
-        <input class="searchBar_input" type="text" placeholder="캠핑장 검색">
-        <i class="fas fa-search"></i>
+</style>
+{% endblock %}
+
+<!--본문 내용-->
+{% block content %}
+<div id="container">
+  <!--body상단부-->
+  <div class="top_content">
+    <h1>WithCamping</h1>
+    <div class="searchBar">
+      <input class="searchBar_input" type="text" placeholder="캠핑장 검색">
+      <i class="fas fa-search"></i>
+    </div>
+  </div>
+
+  <!--지역,날짜,인원 선택 박스-->
+  <div class="select_container">
+    <!--지역 선택-->
+    <div class="select_area">
+      <i class="far fa-map"></i>
+      <p>지역 선택</p>
+      <i class="fas fa-angle-down"></i>
+    </div>
+    <!--지역 선택 모달창-->
+    <div class="area_modal">
+      <div class="area_modal_content">
+        <a href="javascript:void(0)" class="btn_close">close</a>
+        <h5>지역 선택</h5>
+        <!--지역 선택 테이블-->
+        <table class="tg">
+          <thead>
+            <tr>
+              <td class="tg-0pky">서울</td>
+              <td class="tg-0pky">부산</td>
+              <td class="tg-0pky">강원</td>
+              <td class="tg-0pky">제주</td>
+              <td class="tg-0pky">인천</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="tg-0pky">경기</td>
+              <td class="tg-0pky">경북</td>
+              <td class="tg-0pky">경남</td>
+              <td class="tg-0pky">대전</td>
+              <td class="tg-0pky">대구</td>
+            </tr>
+            <tr>
+              <td class="tg-0pky">충북</td>
+              <td class="tg-0pky">충남</td>
+              <td class="tg-0pky">전남</td>
+              <td class="tg-0pky">전북</td>
+              <td class="tg-0pky">광주</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
 
-    <!--지역,날짜,인원 선택 박스-->
-    <div class="select_container">
-      <!--지역 선택-->
-      <div class="select_area">
-        <i class="far fa-map"></i>
-        <p>지역 선택</p>
-        <i class="fas fa-angle-down"></i>
-      </div>
-      <!--지역 선택 모달창-->
-      <div class="area_modal">
-        <div class="area_modal_content">
-          <a href="javascript:void(0)" class="btn_close">close</a>
-          <h5>지역 선택</h5>
-          <!--지역 선택 테이블-->
-          <table class="tg">
-            <thead>
-              <tr>
-                <td class="tg-0pky">서울</td>
-                <td class="tg-0pky">부산</td>
-                <td class="tg-0pky">강원</td>
-                <td class="tg-0pky">제주</td>
-                <td class="tg-0pky">인천</td>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="tg-0pky">경기</td>
-                <td class="tg-0pky">경북</td>
-                <td class="tg-0pky">경남</td>
-                <td class="tg-0pky">대전</td>
-                <td class="tg-0pky">대구</td>
-              </tr>
-              <tr>
-                <td class="tg-0pky">충북</td>
-                <td class="tg-0pky">충남</td>
-                <td class="tg-0pky">전남</td>
-                <td class="tg-0pky">전북</td>
-                <td class="tg-0pky">광주</td>
-              </tr>
-            </tbody>
-            </table>
+    <!--날짜 선택-->
+    <div class="select_date">
+      <i class="far fa-calendar-alt"></i>
+      <input type="text" id="datepicker1" placeholder="11/20/2021">
+      <p>~</p>
+      <input type="text" id="datepicker2" placeholder="11/21/2021">
+    </div>
+
+    <!--인원 선택-->
+    <div class="select_personnal">
+      <i class="fas fa-user-friends"></i>
+      <p>성인: 1 아동: 0</p>
+      <i class="fas fa-angle-down"></i>
+    </div>
+    <!--인원 선택 모달창-->
+    <div class="personnal_modal">
+      <div class="personnal_modal_content">
+        <a href="javascript:void(0)" class="btn_close">close</a>
+        <h5>인원 선택</h5>
+        <div class="input_adult">
+          성인 :
+          <input type='number'>
         </div>
-      </div>
-
-      <!--날짜 선택-->
-      <div class="select_date">
-        <i class="far fa-calendar-alt"></i>
-        <input type="text" id="datepicker1" placeholder="11/19/2021">
-        <p>~</p>
-        <input type="text" id="datepicker2" placeholder="11/20/2021">
-      </div>
-
-      <!--인원 선택-->
-      <div class="select_personnal">
-        <i class="fas fa-user-friends"></i>
-        <p>성인: 1 아동: 0</p>
-        <i class="fas fa-angle-down"></i>
-      </div>
-      <!--인원 선택 모달창-->
-      <div class="personnal_modal">
-        <div class="personnal_modal_content">
-          <a href="javascript:void(0)" class="btn_close">close</a>
-          <h5>인원 선택</h5>
-          <div class="input_adult">
-            성인 :
-            <input type='number'>
-          </div>
-          <div class="input_child">
-            아동 :
-            <input type='number'>
-          </div>
+        <div class="input_child">
+          아동 :
+          <input type='number'>
         </div>
       </div>
     </div>
+  </div>
 
-    <!--캠핑장 카드 리스트-->
-    <div class="campground_wrap">
-      <ul>
-        <!--각 카드-->
-        {% for campground in campgrounds %}
-        <a href="/detail">
-        <li class="campground_item">
+  <!--캠핑장 카드 리스트-->
+  <div class="campground_wrap">
+    <div class="ct" style="display: flex; flex-direction:row; justify-content:space-between; flex-wrap:wrap;">
+      <!--각 카드-->
+      {% for campground in campgrounds %}
+      <div class="campground_item">
+        <a href="reservation_detail.html">
           <!--캠핑장 사진-->
           <div style="background-image: url({{campground.desc_img.url}}); width:100%; height: auto;"></div>
-          <img src="{{campground.desc_img.url}}" class="campground_img">
-          <!--사진 밑 내용-->
+          <img src="{{campground.desc_img.url}}" class="campground_img" style="height: 250px; border-radius:15px 15px 0 0">
           
+          <!--사진 밑 내용-->
+
           <div class="campground_content">
             <!--캠핑장 이름-->
             <div class="campground_name">{{campground.name}}</div>
             <!--캠핑장 별점-->
             <div class="star-ratings">
               {{campground.rate}} / 5
-              </div>
             </div>
-            <!--캠핑장 가격-->
-            <div class="campground_price">{{campground.price}}</div>
           </div>
-        </li>
-      </a>
-      {%endfor%}
-      </ul>
-
-      <!--페이지네이션-->
-      <div class="pagination_box">
-        <ul class="pagination">
-          <li class="page-item"><a class="page-link" href="#"><</a></li>
-          <li class="page-item"><a class="page-link" href="#">1</a></li>
-          <li class="page-item"><a class="page-link" href="#">2</a></li>
-          <li class="page-item"><a class="page-link" href="#">3</a></li>
-          <li class="page-item"><a class="page-link" href="#">4</a></li>
-          <li class="page-item"><a class="page-link" href="#">5</a></li>
-          <li class="page-item"><a class="page-link" href="#">></a></li>
-        </ul>
+          <!--캠핑장 가격-->
+          <div class="campground_price">{{campground.price}}</div>
+        </a>
       </div>
+    {%endfor%}
     </div>
-  
   </div>
-   
-  <!----------------------------------script-------------------------------->
-  <script>
-    //지역 선택 모달창
-    $(document).ready(function() {
-      $(".select_area").click(function() {
-        $(".area_modal").fadeIn();
-      });
-      $(".btn_close").click(function() {
-        $(".area_modal").fadeOut();
-      });
-    });
 
-    // 캘린더 띄우기
-    $(function() {
-      $("#datepicker1,#datepicker2").datepicker({
-          //옵션 생략//
-      });                           
-    });
+  <!--페이지네이션-->
+  <div class="pagination_box">
+    <ul class="pagination">
+      <li class="page-item"><a class="page-link" href="#"><</a></li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item"><a class="page-link" href="#">4</a></li>
+      <li class="page-item"><a class="page-link" href="#">5</a></li>
+      <li class="page-item"><a class="page-link" href="#">></a></li>
+    </ul>
+  </div>
+</div>
 
-   $(function() {
+</div>
+
+<!----------------------------------script-------------------------------->
+<script>
+  //지역 선택 모달창
+  $(document).ready(function () {
+    $(".select_area").click(function () {
+      $(".area_modal").fadeIn();
+    });
+    $(".btn_close").click(function () {
+      $(".area_modal").fadeOut();
+    });
+  });
+
+  // 캘린더 띄우기
+  $(function () {
+    $("#datepicker1,#datepicker2").datepicker({
+      //옵션 생략//
+    });
+  });
+
+  $(function () {
     //input을 datepicker로 선언
     $("#datepicker").datepicker({
-        dateFormat: 'yy-mm-dd' //달력 날짜 형태
-        ,showOtherMonths: true //빈 공간에 현재월의 앞뒤월의 날짜를 표시
-        ,showMonthAfterYear:true // 월- 년 순서가아닌 년도 - 월 순서
-        ,changeYear: true //option값 년 선택 가능
-        ,changeMonth: true //option값  월 선택 가능                
-        ,showOn: "both" //button:버튼을 표시하고,버튼을 눌러야만 달력 표시 ^ both:버튼을 표시하고,버튼을 누르거나 input을 클릭하면 달력 표시  
-        ,buttonImage: "http://jqueryui.com/resources/demos/datepicker/images/calendar.gif" //버튼 이미지 경로
-        ,buttonImageOnly: true //버튼 이미지만 깔끔하게 보이게함
-        ,buttonText: "선택" //버튼 호버 텍스트              
-        ,yearSuffix: "년" //달력의 년도 부분 뒤 텍스트
-        ,monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'] //달력의 월 부분 텍스트
-        ,monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'] //달력의 월 부분 Tooltip
-        ,dayNamesMin: ['일','월','화','수','목','금','토'] //달력의 요일 텍스트
-        ,dayNames: ['일요일','월요일','화요일','수요일','목요일','금요일','토요일'] //달력의 요일 Tooltip
-        ,minDate: "-5Y" //최소 선택일자(-1D:하루전, -1M:한달전, -1Y:일년전)
-        ,maxDate: "+5y" //최대 선택일자(+1D:하루후, -1M:한달후, -1Y:일년후)  
-    });        
+      dateFormat: 'yy-mm-dd' //달력 날짜 형태
+        ,
+      showOtherMonths: true //빈 공간에 현재월의 앞뒤월의 날짜를 표시
+        ,
+      showMonthAfterYear: true // 월- 년 순서가아닌 년도 - 월 순서
+        ,
+      changeYear: true //option값 년 선택 가능
+        ,
+      changeMonth: true //option값  월 선택 가능                
+        ,
+      showOn: "both" //button:버튼을 표시하고,버튼을 눌러야만 달력 표시 ^ both:버튼을 표시하고,버튼을 누르거나 input을 클릭하면 달력 표시  
+        ,
+      buttonImage: "http://jqueryui.com/resources/demos/datepicker/images/calendar.gif" //버튼 이미지 경로
+        ,
+      buttonImageOnly: true //버튼 이미지만 깔끔하게 보이게함
+        ,
+      buttonText: "선택" //버튼 호버 텍스트              
+        ,
+      yearSuffix: "년" //달력의 년도 부분 뒤 텍스트
+        ,
+      monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월',
+          '12월'
+        ] //달력의 월 부분 텍스트
+        ,
+      monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'] //달력의 월 부분 Tooltip
+        ,
+      dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'] //달력의 요일 텍스트
+        ,
+      dayNames: ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'] //달력의 요일 Tooltip
+        ,
+      minDate: "-5Y" //최소 선택일자(-1D:하루전, -1M:한달전, -1Y:일년전)
+        ,
+      maxDate: "+5y" //최대 선택일자(+1D:하루후, -1M:한달후, -1Y:일년후)  
+    });
 
     //초기값을 오늘 날짜로 설정.
-    $('#datepicker').datepicker('setDate', 'today'); //(-1D:하루전, -1M:한달전, -1Y:일년전), (+1D:하루후, -1M:한달후, -1Y:일년후)            
-    });
+    $('#datepicker').datepicker('setDate',
+      'today'); //(-1D:하루전, -1M:한달전, -1Y:일년전), (+1D:하루후, -1M:한달후, -1Y:일년후)            
+  });
 
-    //인원 선택 모달창
-    $(document).ready(function() {
-      $(".select_personnal").click(function() {
-        $(".personnal_modal").fadeIn();
-      });
-      $(".btn_close").click(function() {
-        $(".personnal_modal").fadeOut();
-      });
+  //인원 선택 모달창
+  $(document).ready(function () {
+    $(".select_personnal").click(function () {
+      $(".personnal_modal").fadeIn();
     });
+    $(".btn_close").click(function () {
+      $(".personnal_modal").fadeOut();
+    });
+  });
 
-    //인원 선택 구현
-  </script>
-  
-  {% endblock %}
+  //인원 선택 구현
+</script>
+
+{% endblock %}
