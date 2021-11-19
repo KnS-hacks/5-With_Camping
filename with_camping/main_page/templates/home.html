@@ -462,18 +462,18 @@
           
           <!--사진 밑 내용-->
 
-          <div class="campground_content">
+          <div class="campground_content" style="padding:5px 10px;">
             <!--캠핑장 이름-->
             <div class="campground_name">{{campground.name}}</div>
             <!--캠핑장 별점-->
-            <div class="star-ratings">
+            <div class="star-ratings" style="margin-left: 10px;">
               {{campground.rate}} / 5
             </div>
           </div>
           <!--캠핑장 가격-->
-          <div class="campground_price">{{campground.price}}</div>
+          <div class="campground_price" style="margin:0 15px;">{{campground.price}}</div>
         </a>
-      </div>
+      </div> 
     {%endfor%}
     </div>
   </div>
