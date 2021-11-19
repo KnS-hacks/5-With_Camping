@@ -1,11 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>게시글 세부</title>
-</head>
+{% extends 'base.html' %}
+{% load static %}
+
+    <!-- 이 html에 추가되는 CSS -->
+    {% block css %}>
+<style>
+
+</style>
+
+    {% endblock %}
+    <!--본문 내용-->
+{% block content %}
+
 
 <body>
     <div id="bulletin_post_header">
@@ -14,7 +19,7 @@
         <p>작성자 : {{bulletin_post.author}}</p>
         <p>작성일 : {{bulletin_post.creation_date}}</p>
     </div>
-    
     <p>{{bulletin_post.body}}</p>
+
 </body>
-</html>
+{% endblock %}

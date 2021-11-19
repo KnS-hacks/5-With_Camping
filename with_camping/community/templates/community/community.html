@@ -1,18 +1,226 @@
 {% extends 'base.html' %}
+{% load static %}
 
-  <!-- 이 html에 추가되는 CSS -->
-  {% block css %}
-  <style>
+    <!-- 이 html에 추가되는 CSS -->
+    {% block css %}
+
+    <style>
+        body {
+            font-family: 'MaruBuri-Regular';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.0/MaruBuri-Regular.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+            background-color: #F2EAE0;
+        }
     
-  </style>
-  {% endblock %}
+        @font-face {
+            font-family: 'MaruBuri-Regular';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.0/MaruBuri-Regular.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+    
+        #title {
+            margin-left: 620px;
+            margin-top: 50px;
+        }
+    
+        .community_box1 {
+            background-color: white;
+            width: 230px;
+            height: 300px;
+            transform: rotate(9deg);
+            margin-top: -915px;
+            margin-left: 140px;
+        }
+    
+        .community_box2 {
+            background-color: white;
+            width: 230px;
+            height: 300px;
+            transform: rotate(4deg);
+            margin-top: -283px;
+            margin-left: 530px;
+        }
+        .community_box3 {
+            background-color: white;
+            width: 230px;
+            height: 300px;
+            transform: rotate(-4deg);
+            margin-top: -320px;
+            margin-left: 950px;
+        }
+        .community_box4 {
+            background-color: white;
+            width: 230px;
+            height: 300px;
+            transform: rotate(1deg);
+            margin-top: -7px;
+            margin-left: 140px;
+        }
+        .community_box5 {
+            background-color: white;
+            width: 230px;
+            height: 300px;
+            transform: rotate(-3deg);
+            margin-top: -325px;
+            margin-left: 530px;
+        }
+        .community_box6 {
+            background-color: white;
+            width: 230px;
+            height: 300px;
+            transform: rotate(-10deg);
+            margin-top: -372px;
+            margin-left: 950px;
+        }
+        #camping_back1{
+            width: 180px; 
+            height: 180px;  
+            margin-top:-300px; 
+            margin-left: 350px;
+            transform: rotate(-10deg);
+        }
+        #camping_back2{
+            width: 160px; 
+            height: 160px;  
+            margin-top:-713px; 
+            margin-left: 230px;
+            transform: rotate(-8deg);
+        }
+        #camping_back3{
+            width: 100px; 
+            height: 100px;  
+            margin-top:-900px; 
+            margin-left: -550px;
+            transform: rotate(10deg);
+        }
+        .write_btn {
+            line-height:30px;
+            text-align:center;
+            vertical-align:middle;
+            display:inline-block;
+            font-size:15px;
+            color:#f8f8f8;
+            width:100px;
+            height:40px;
+            padding-top: 5px;
+            margin-top: -1530px;
+            margin-left: 790px;
+            border-width:2px;
+            border-style:solid;
+            background-color: rgb(177, 160, 135);
+        }
+    </style>
+    
+    {% endblock %}
+    <!--본문 내용-->
+{% block content %}
 
-  <!--본문 내용-->
-  {% block content %}
-    {%for obj in bulletin_post.all%}
-        <h1>제목 : {{obj.title}}</h1>
-        <p>내용 : {{obj.body}}</p>
-        <p>작성일 : {{boj.date}}</p>
-    {%endfor%}
-  
-  {% endblock %}
+<body onload="loaded()">
+    <div id=title>
+        <p>
+        <h2>커뮤니티</h2>
+        </p>
+    </div>
+    <h4 style="margin-left: 500px; margin-top: 20px;">"여러분들의 소중한 추억을 기록해보세요"</h4>
+    <br>
+
+    <canvas id="canvas" width="1400px" height="1000px"></canvas>
+
+    <img src="peg.png" style="width: 30px; height: 50px;  margin-top:-1850px; margin-left: 270px;">
+    <div class="community_box1" >
+        <div class="review_image" style="margin-left: 15px;">
+            <img src="camping_review2.jpg" alt="" style="width: 200px; height: 200px;  margin-top:10px;">
+        </div>
+        <div>
+            <h5 style="margin-left: 20px;">아이들과 재미있게 놀았어요</h5>
+        </div>
+    </div>
+    
+    <img src="peg.png" style="width: 30px; height: 50px;  margin-top:-590px; margin-left: 650px;">
+    <div class="community_box2" >
+        <div class="review_image" style="margin-left: 15px;">
+            <img src="camping_review2.jpg" alt="" style="width: 200px; height: 200px;  margin-top:10px;">
+        </div>
+        <div>
+            <h5 style="margin-left: 20px;">아이들과 재미있게 놀았어요</h5>
+        </div>
+    </div>
+
+    <img src="peg.png" style="width: 30px; height: 50px;  margin-top:-660px; margin-left: 1050px;">
+    <div class="community_box3" >
+        <div class="review_image" style="margin-left: 15px;">
+            <img src="camping_review2.jpg" alt="" style="width: 200px; height: 200px;  margin-top:10px;">
+        </div>
+        <div>
+            <h5 style="margin-left: 20px;">아이들과 재미있게 놀았어요</h5>
+        </div>
+    </div>
+
+    <img src="peg.png" style="width: 30px; height: 50px;  margin-top:80px; margin-left: 255px;">
+    <div class="community_box4" >
+        <div class="review_image" style="margin-left: 15px;">
+            <img src="camping_review2.jpg" alt="" style="width: 200px; height: 200px;  margin-top:10px;">
+        </div>
+        <div>
+            <h5 style="margin-left: 20px;">아이들과 재미있게 놀았어요</h5>
+        </div>
+    </div>
+
+    <img src="peg.png" style="width: 30px; height: 50px;  margin-top:-678px; margin-left: 630px;">
+    <div class="community_box5" >
+        <div class="review_image" style="margin-left: 15px;">
+            <img src="camping_review2.jpg" alt="" style="width: 200px; height: 200px;  margin-top:10px;">
+        </div>
+        <div>
+            <h5 style="margin-left: 20px;">아이들과 재미있게 놀았어요</h5>
+        </div>
+    </div>
+
+    <img src="peg.png" style="width: 30px; height: 50px;  margin-top:-767px; margin-left: 1030px;">
+    <div class="community_box6" >
+        <div class="review_image" style="margin-left: 15px;">
+            <img src="camping_review2.jpg" alt="" style="width: 200px; height: 200px;  margin-top:10px;">
+        </div>
+        <div>
+            <h5 style="margin-left: 20px;">아이들과 재미있게 놀았어요</h5>
+        </div>
+    </div>
+
+    <img src="camping_back1.png" alt="" id="camping_back1">
+    <img src="camping_back2.png" alt="" id="camping_back2">
+    <img src="camping_back3.png" alt="" id="camping_back3">
+
+    <a href="#" class="write_btn" role="button">글쓰기</a>
+
+    <script type="text/javascript">
+        // window.onload = function(){
+            function loaded(){
+            var canvas = document.getElementById("canvas");
+               
+            if(canvas.getContext){
+                var draw = canvas.getContext("2d");
+                
+                draw.beginPath();
+                draw.moveTo(50,50);
+                //quadraticCurveTo(조절점x, 조절점y, 선의 끝점x, 선의 끝점y)
+                draw.quadraticCurveTo(700, 200, 1400, 100);
+                draw.lineWidth = 2;
+                draw.strokeStyle = "dark-brown";
+                draw.stroke();
+
+                draw.beginPath();
+                draw.moveTo(50,550);
+                //quadraticCurveTo(조절점x, 조절점y, 선의 끝점x, 선의 끝점y)
+                draw.quadraticCurveTo(900, 600, 1400, 400);
+                draw.lineWidth = 2;
+                draw.strokeStyle = "dark-brown";
+                draw.stroke();
+
+
+            }
+        }
+        </script>
+</body>
+{% endblock %}
