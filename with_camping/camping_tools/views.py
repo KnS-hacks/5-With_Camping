@@ -6,8 +6,9 @@ from django.http import HttpResponse
 
 # Create your views here.
 # 캠핑용품 목록
-def camping_tools_list(request):
-    return HttpResponse('This is list of camping tools')
+def camping_tool(request):
+    camping_tools = CampingTools.objects.all()
+    return render (request, 'camping_tools.html', {'camping_tools':camping_tools})
 
 # 특정 캠핑용품의 세부사항
 def camping_tool_detail(request):
