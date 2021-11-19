@@ -79,55 +79,70 @@
     </div>
 
       <!-- 상품 보여주는 칸 -->
+    {% for a in camping_tools %}
     <div class="row" style="float:left;">
-        <div class="col-sm-6 col-md-4">
-            <div class="thumbnail">
-                <img src="tent.jpg" alt="텐트" width="400px" height="100px">
-                <div class="caption">
-                    <h4>메이튼 레드와일드 캠핑 오두막 텐트 3-4인용</h4>
-                    <p>구매:330,000원  &nbsp  &nbsp  대여:132,000원</p>
-                    <div class="a_btn">
-                        <p><a href="#" class="btn btn-primary" role="button">구매하기</a> <!-- 링크 -->
-                            <a href="#" class="btn btn-default" role="button">대여하기</a>
-                        </p> <!-- 링크 -->
-                    </div>
-                </div>
-            </div>
-        </div>
+      <div class="col-sm-6 col-md-4">
+          <div class="thumbnail">
+            {% if a.image %}
+            <a href="{% url 'detail' a.id %}"><img src="{{ a.image.url }}" alt="텐트" width="400px" height="100px"></a>
+            {% endif %}
+          </div>
+      </div>
     </div>
 
-      <div class="row" style="float:left;">
-        <div class="col-sm-6 col-md-4">
+    <div class="a_btn">
+      <p><a href="{% url 'camping_tool_detail' a.id %}" class="btn btn-primary" role="button">구매하기</a> <!-- 링크 -->
+          <a href="{% url 'camping_tool_detail' a.id %}" class="btn btn-default" role="button">대여하기</a>
+      </p> <!-- 링크 -->
+    </div>
+    {% endfor %}
+    <div class="row" style="float:left;">
+      <div class="col-sm-6 col-md-4">
           <div class="thumbnail">
-            <img src="brazier.jpg" alt="화로대" width="400px">
-            <div class="caption">
-              <h4>캠핑 화로대 바비큐 그릴 접이식 불멍화로대</h4>
-              <p>구매:127,000원 &nbsp  &nbsp 대여:50,800원</p>
-              <div class="a_btn">
-                <p><a href="{% url 'camping_tool_detail' %}" class="btn btn-primary" role="button">구매하기</a> <!-- 링크 -->
-                    <a href="#" class="btn btn-default" role="button">대여하기</a>
-                </p> <!-- 링크 -->
-            </div>
-            </div>
+              <img src="tent.jpg" alt="텐트" width="400px" height="100px">
+              <div class="caption">
+                  <h4>메이튼 레드와일드 캠핑 오두막 텐트 3-4인용</h4>
+                  <p>구매:330,000원  &nbsp  &nbsp  대여:132,000원</p>
+                  <div class="a_btn">
+                      <p><a href="#" class="btn btn-primary" role="button">구매하기</a> <!-- 링크 -->
+                          <a href="#" class="btn btn-default" role="button">대여하기</a>
+                      </p> <!-- 링크 -->
+                  </div>
+              </div>
           </div>
-        </div>
       </div>
+  </div>
 
-      <div class="row" style="float:left;">
-        <div class="col-sm-6 col-md-4">
-          <div class="thumbnail">
-            <img src="table.jpg" alt="테이블" width="380px">
-            <div class="caption">
-              <h3>경량 캠핑 테이블 소형</h3>
-              <p>구매:19,800원 &nbsp  &nbsp 대여:7,920원</p>
-              <div class="a_btn">
-                <p><a href="#" class="btn btn-primary" role="button">구매하기</a> <!-- 링크 -->
-                    <a href="#" class="btn btn-default" role="button">대여하기</a>
-                </p> <!-- 링크 -->
-            </div>
-            </div>
+    <div class="row" style="float:left;">
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <img src="brazier.jpg" alt="화로대" width="400px">
+          <div class="caption">
+            <h4>캠핑 화로대 바비큐 그릴 접이식 불멍화로대</h4>
+            <p>구매:127,000원 &nbsp  &nbsp 대여:50,800원</p>
+            
+            
+            
           </div>
         </div>
       </div>
+    </div>
+
+    <div class="row" style="float:left;">
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <img src="table.jpg" alt="테이블" width="380px">
+          <div class="caption">
+            <h3>경량 캠핑 테이블 소형</h3>
+            <p>구매:19,800원 &nbsp  &nbsp 대여:7,920원</p>
+            <div class="a_btn">
+              <p><a href="#" class="btn btn-primary" role="button">구매하기</a> <!-- 링크 -->
+                  <a href="#" class="btn btn-default" role="button">대여하기</a>
+              </p> <!-- 링크 -->
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
 </body>
 </html>
