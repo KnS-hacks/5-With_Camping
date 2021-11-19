@@ -14,4 +14,8 @@ class BulletinPost(models.Model):
                 , )
 
     category = models.CharField(max_length = 20, choices = CATEGORIES, default = "camping_tools")
-    body = models.CharField(max_length = 300)
+    body = models.TextField()
+    image = models.ImageField(upload_to = "community/", blank=True, null=True)
+
+    def __str__(self) :
+        return self.title

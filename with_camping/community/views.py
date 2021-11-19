@@ -1,13 +1,13 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .models import BulletinPost
 from .forms import BulletinPostForm
+from .models import *
 
 # Create your views here.
-# 캠핑용품 게시판
-def camping_tools(request):
-    bulletin_post = BulletinPost.objects
-    return render(request, "community.html", {"bulletin_post" : bulletin_post})
+# 캠핑 커뮤니티 게시판
+def camping_community(request):
+    bulletin_posts = BulletinPost.objects.all()
+    return render (request, 'community.html', {'bulletin_posts':bulletin_posts})
 
 # 캠핑장 게시판
 def camping_ground(request):

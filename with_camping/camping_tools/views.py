@@ -27,6 +27,7 @@ def purchase_camping_tool(request, id, user_id):
     new_order.save() 
     return render(request, 'orderFinish.html', {'new_order':new_order})
 
+# 캠핑용품 주문 내역 (결제 창)
 def order_list(request, user_id) : 
     o_list = OrderList.objects.all()
     p_list = CampingTools.objects.all()
@@ -38,7 +39,7 @@ def order_list(request, user_id) :
     for i in o_list : 
         for j in p_list : 
             if str(i) == str(j) : 
-                total += int(j.productPrice)
+                total += int(j.productPrice) 
                 result.append(j)
                 
-    return render(request, 'orderList.html', {'result':result, 'total':total})
+    return render(request, 'order_lists.html', {'result':result, 'total':total})

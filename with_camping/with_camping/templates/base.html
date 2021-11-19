@@ -151,11 +151,11 @@
     <header>
         <nav class="navbar">
             <div class="navbar_logo">
-                <a href="">WithCamping</a>
+                <a href="{% url 'home' %}">WithCamping</a>
             </div>
             <ul class="navbar_menu">
-                <li><a href="">캠핑용품</a></li>
-                <li><a href="">커뮤니티</a></li>
+                <li><a href="{% url 'camping_tools_list' %}">캠핑용품</a></li>
+                <li><a href="{% url 'camping_community' %}">커뮤니티</a></li>
             </ul>
             <ul class="navbar_login">
                 <!--등록된 유저가 아니라면-->
