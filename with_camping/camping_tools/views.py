@@ -1,4 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
+from .models import *
+from member.models import Member
+from django.core.paginator import Paginator
 from django.http import HttpResponse
 
 # Create your views here.
@@ -15,5 +18,27 @@ def rent_camping_tool(request):
     return HttpResponse('Rent a camping tool')
 
 # 특정 캠핑용품 구매
-def purchase_camping_tool(request):
-    return HttpResponse('Purchase a camping tool')
+def purchase_camping_tool(request, id, user_id):
+    campingtools = get_object_or_404(CampingTools, pk=id)
+    new_order = OrderList()
+    user = Member.objects.get(id = user_id)
+    new_order.order_Member = user
+    new_order.order_List = campingtools
+    new_order.save() 
+    return render(request, 'orderFinish.html', {'new_order':new_order})
+
+def order_list(request, user_id) : 
+    o_list = OrderList.objects.all()
+    p_list = CampingTools.objects.all()
+
+    o_list = o_list.filter(order_Member = user_id)
+
+    result = []
+    total = 0
+    for i in o_list : 
+        for j in p_list : 
+            if str(i) == str(j) : 
+                total += int(j.productPrice)
+                result.append(j)
+                
+    return render(request, 'orderList.html', {'result':result, 'total':total})
