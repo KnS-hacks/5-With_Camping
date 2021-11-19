@@ -6,23 +6,35 @@
 
     <style>
         body {
-            font-family: 'MaruBuri-Regular';
-            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.0/MaruBuri-Regular.woff') format('woff');
-            font-weight: normal;
-            font-style: normal;
             background-color: #F2EAE0;
         }
     
-        @font-face {
-            font-family: 'MaruBuri-Regular';
-            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.0/MaruBuri-Regular.woff') format('woff');
-            font-weight: normal;
-            font-style: normal;
+        .community_main_box{
+            width: 1400px;
+            position: relative;
+            left: 50%;
+            margin:0 0 0 -700px;
+            /* margin: 0 auto;
+            display: inline-block;
+            text-align: center; */
         }
     
         #title {
             text-align: center;
             margin:50px;
+        }
+
+        h4 {
+            position: relative;
+            left: 50%;
+            width:440px;
+            margin: 0 0 0 -220px;
+        }
+        .write_button{
+            position: absolute;
+            left: 80%;
+            width:100px;
+            margin: 0;
         }
     
         .community_box1 {
@@ -117,13 +129,16 @@
     <!--본문 내용-->
 {% block content %}
 
-<body onload="loaded()">
+<!-- <body onload="loaded()"> -->
+    <body>
     <div id=title>
         <p>
         <h2>커뮤니티</h2>
         </p>
     </div>
-    <h4 style="margin-left: 500px; margin-top: 20px;">"여러분들의 소중한 추억을 기록해보세요"</h4>
+
+    <h4>"여러분들의 소중한 추억을 기록해보세요"</h4>
+
     <br>
 
     <form class="write_button" action="{% url 'write' %}" method="POST">
@@ -131,76 +146,78 @@
         <button type="submit" class="writebtn" value="write">글쓰기</button>
     </form>
 
-    <canvas id="canvas" width="1400px" height="1000px"></canvas>
-
-    <img src='{% static "peg.png" %}'' style="width: 30px; height: 50px;  margin-top:-1850px; margin-left: 270px;">
-    <div class="community_box1" >
-        <div class="review_image" style="margin-left: 15px;">
-            <img src="camping_review2.jpg" alt="" style="width: 200px; height: 200px;  margin-top:10px;">
-        </div>
-        <div>
-            <h5 style="margin-left: 20px;">아이들과 재미있게 놀았어요</h5>
-        </div>
-    </div>
+    <div class="community_main_box">
+        <canvas id="canvas" width="1400px" height="1000px"></canvas>
     
-    <img src="peg.png" style="width: 30px; height: 50px;  margin-top:-590px; margin-left: 650px;">
-    <div class="community_box2" >
-        <div class="review_image" style="margin-left: 15px;">
-            <img src="camping_review2.jpg" alt="" style="width: 200px; height: 200px;  margin-top:10px;">
+        <img src='{% static "peg.png" %}' style="width: 30px; height: 50px;  margin-top:-1850px; margin-left: 270px;">
+        <div class="community_box1">
+            <div class="review_image" style="margin-left: 15px;">
+                <img src="camping_review2.jpg" alt="" style="width: 200px; height: 200px;  margin-top:10px;">
+            </div>
+            <div>
+                <h5 style="margin-left: 20px;">아이들과 재미있게 놀았어요</h5>
+            </div>
         </div>
-        <div>
-            <h5 style="margin-left: 20px;">아이들과 재미있게 놀았어요</h5>
+    
+        <img src="peg.png" style="width: 30px; height: 50px;  margin-top:-590px; margin-left: 650px;">
+        <div class="community_box2">
+            <div class="review_image" style="margin-left: 15px;">
+                <img src="camping_review2.jpg" alt="" style="width: 200px; height: 200px;  margin-top:10px;">
+            </div>
+            <div>
+                <h5 style="margin-left: 20px;">아이들과 재미있게 놀았어요</h5>
+            </div>
         </div>
+    
+        <img src="peg.png" style="width: 30px; height: 50px;  margin-top:-660px; margin-left: 1050px;">
+        <div class="community_box3">
+            <div class="review_image" style="margin-left: 15px;">
+                <img src="camping_review2.jpg" alt="" style="width: 200px; height: 200px;  margin-top:10px;">
+            </div>
+            <div>
+                <h5 style="margin-left: 20px;">아이들과 재미있게 놀았어요</h5>
+            </div>
+        </div>
+    
+        <img src="peg.png" style="width: 30px; height: 50px;  margin-top:80px; margin-left: 255px;">
+        <div class="community_box4">
+            <div class="review_image" style="margin-left: 15px;">
+                <img src="camping_review2.jpg" alt="" style="width: 200px; height: 200px;  margin-top:10px;">
+            </div>
+            <div>
+                <h5 style="margin-left: 20px;">아이들과 재미있게 놀았어요</h5>
+            </div>
+        </div>
+    
+        <img src="peg.png" style="width: 30px; height: 50px;  margin-top:-678px; margin-left: 630px;">
+        <div class="community_box5">
+            <div class="review_image" style="margin-left: 15px;">
+                <img src="camping_review2.jpg" alt="" style="width: 200px; height: 200px;  margin-top:10px;">
+            </div>
+            <div>
+                <h5 style="margin-left: 20px;">아이들과 재미있게 놀았어요</h5>
+            </div>
+        </div>
+    
+        <img src="peg.png" style="width: 30px; height: 50px;  margin-top:-767px; margin-left: 1030px;">
+        <div class="community_box6">
+            <div class="review_image" style="margin-left: 15px;">
+                <img src="camping_review2.jpg" alt="" style="width: 200px; height: 200px;  margin-top:10px;">
+            </div>
+            <div>
+                <h5 style="margin-left: 20px;">아이들과 재미있게 놀았어요</h5>
+            </div>
+        </div>
+    
+        <img src="camping_back1.png" alt="" id="camping_back1">
+        <img src="camping_back2.png" alt="" id="camping_back2">
+        <img src="camping_back3.png" alt="" id="camping_back3">
     </div>
-
-    <img src="peg.png" style="width: 30px; height: 50px;  margin-top:-660px; margin-left: 1050px;">
-    <div class="community_box3" >
-        <div class="review_image" style="margin-left: 15px;">
-            <img src="camping_review2.jpg" alt="" style="width: 200px; height: 200px;  margin-top:10px;">
-        </div>
-        <div>
-            <h5 style="margin-left: 20px;">아이들과 재미있게 놀았어요</h5>
-        </div>
-    </div>
-
-    <img src="peg.png" style="width: 30px; height: 50px;  margin-top:80px; margin-left: 255px;">
-    <div class="community_box4" >
-        <div class="review_image" style="margin-left: 15px;">
-            <img src="camping_review2.jpg" alt="" style="width: 200px; height: 200px;  margin-top:10px;">
-        </div>
-        <div>
-            <h5 style="margin-left: 20px;">아이들과 재미있게 놀았어요</h5>
-        </div>
-    </div>
-
-    <img src="peg.png" style="width: 30px; height: 50px;  margin-top:-678px; margin-left: 630px;">
-    <div class="community_box5" >
-        <div class="review_image" style="margin-left: 15px;">
-            <img src="camping_review2.jpg" alt="" style="width: 200px; height: 200px;  margin-top:10px;">
-        </div>
-        <div>
-            <h5 style="margin-left: 20px;">아이들과 재미있게 놀았어요</h5>
-        </div>
-    </div>
-
-    <img src="peg.png" style="width: 30px; height: 50px;  margin-top:-767px; margin-left: 1030px;">
-    <div class="community_box6" >
-        <div class="review_image" style="margin-left: 15px;">
-            <img src="camping_review2.jpg" alt="" style="width: 200px; height: 200px;  margin-top:10px;">
-        </div>
-        <div>
-            <h5 style="margin-left: 20px;">아이들과 재미있게 놀았어요</h5>
-        </div>
-    </div>
-
-    <img src="camping_back1.png" alt="" id="camping_back1">
-    <img src="camping_back2.png" alt="" id="camping_back2">
-    <img src="camping_back3.png" alt="" id="camping_back3">
 
 
     <script type="text/javascript">
-        // window.onload = function(){
-            function loaded(){
+        window.onload = function(){
+            // function loaded(){
             var canvas = document.getElementById("canvas");
                
             if(canvas.getContext){
