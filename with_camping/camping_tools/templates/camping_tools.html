@@ -1,43 +1,25 @@
-{% extends 'base.html' %}
-{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+    integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<!-- 합쳐지고 최소화된 최신 CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 
-    <!-- 이 html에 추가되는 CSS -->
-    {% block css %}
+<!-- 부가적인 테마 -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 
-<style>
-  body{font-family:'MaruBuri-Regular';}       /* 글씨 적용 */
-        #title{
-            margin-left: 620px;
-            margin-top: 50px;
-        }
-        /* 검색 상자 */
-        .search{
-          width: 1000px;
-          margin-left: 150px;
-          margin-top: 30px;
-        }
-        /* 전체 상품 글씨 */
-        #content{
-            margin-left: 650px;
-            margin-top: 30px;
-        }
-        /* 상품 보여주는 칸 */
-        .thumbnail{
-            width: 430px;
-            height: 530px;
-            margin-left: 40px;
-            margin-right: 20px;
-            margin-top: 50px;
-        }
-        .a_btn{
-            margin-left: 100px;
-        }
-</style>
+<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
-{% endblock %}
-<!--본문 내용-->
-{% block content %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase</title>
 
+    <link rel="stylesheet" href="purchase.css">
+
+</head>
 <body>
     <!-- 로그인/회원가입 네비게이션 바 -->
     <nav class="navbar navbar-default">
@@ -122,7 +104,7 @@
               <h4>캠핑 화로대 바비큐 그릴 접이식 불멍화로대</h4>
               <p>구매:127,000원 &nbsp  &nbsp 대여:50,800원</p>
               <div class="a_btn">
-                <p><a href="#" class="btn btn-primary" role="button">구매하기</a> <!-- 링크 -->
+                <p><a href="{% url 'camping_tool_detail' %}" class="btn btn-primary" role="button">구매하기</a> <!-- 링크 -->
                     <a href="#" class="btn btn-default" role="button">대여하기</a>
                 </p> <!-- 링크 -->
             </div>
@@ -148,4 +130,4 @@
         </div>
       </div>
 </body>
-{% endblock %}
+</html>
