@@ -3,86 +3,186 @@
 
   <!-- 이 html에 추가되는 CSS -->
   {% block css %}
+
   <style>
-    body{font-family:'MaruBuri-Regular';}       /* 글씨 적용 */
-          #title{
-              margin-left: 620px;
-              margin-top: 50px;
-          }
 
-          .search{
-            width: 1000px;
-            margin-left: 150px;
-            margin-top: 30px;
-          }
+  #container {
+    height:3000px;
+    background-color: #FFFFFC;
+  }
+  
+  .top_content{
+    height:300px;
+    width:100%;
+  }
 
-          #content{
-              margin-left: 650px;
-              margin-top: 30px;
-          }
+  h1 {
+    margin:0 auto;
+    padding-top:50px;
+    font-size: 60px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: black;
+  }
+  /*검색바 css*/
+  .searchBar{
+    position: relative;
+    left:50%;
+    margin: 50px 0 0 -300px;
+    width: 600px;
+  }
+  .searchBar i{
+    position:absolute;
+    top: 17px;
+    left:18px;
+    color:black;
+  }
+  .searchBar_input{
+    height: 50px;
+    width:100%;
+    box-sizing: border-box;
+    display:inline-block;
+    font-size:20px;
+    transition: .5s;
+    border: solid 3px #fff;
+    background-color: rgba(245, 245, 245, 0);
+    box-shadow: 2px 2px 20px #C9C9C9;
+    padding: 0 40px;
+  }
+  .searchBar_input[type="text"]{
+    position: relative;
+    border-radius: 25px;
+    cursor: pointer;
+    color:black;
+  }
+  .searchBar_input::placeholder{
+    color: black;
+  }
 
-          .thumbnail{
-              width: 430px;
-              height: 530px;
-              margin-left: 40px;
-              margin-right: 20px;
-              margin-top: 50px;
-          }
-          .a_btn{
-              margin-left: 100px;
-          }
+  /*카드 오와열*/
+  .camping_tools_wrap{
+    left:50%;
+    width:1150px;
+    margin:0 auto;
+  }
+  /*각 카드*/
+  .camping_tools_item{
+    display:inline-block;
+    width:250px;
+    height:350px;
+    border: solid 1px #C7C7C7;
+    border-radius: 15px;
+    margin-left:2%;
+    margin-top:50px;
+    background-color: white;
+  }
+  .camping_tools_item:hover{
+    cursor: pointer;
+    box-shadow: 1px 1px 15px #CBCBCB;
+  }
+  /*가장 왼쪽 카드 왼쪽 여백 없애기*/
+  .camping_tools_item:nth-child(4n-3){
+    margin-left:0;
+  }
+  /*가장 위족 카드 위 여백 없애기*/
+  .camping_tools_item:nth-child(-n+4){
+    margin-top:0;
+  }
+  
+  .thumbnail{
+    width: 430px;
+    height: 530px;
+    margin-left: 40px;
+    margin-right: 20px;
+    margin-top: 50px;
+  }
+  .thumbnail img{
+    width:100%;
+    height:250px;
+  }
+  .caption {
+    border-top:solid 1px #C7C7C7;
+    height:100px;
+  }
+  .a_btn{
+    margin-left: 100px;
+  }
+
+  
+  /*페이지네이션 css*/
+  .pagination_box{
+    margin:100px auto;
+  }
+  .pagination{
+    justify-content: center;
+  }
+  .pagination a{
+    color:black;
+  }
   </style>
   {% endblock %}
   
   <!--본문 내용-->
   {% block content %}
-      <div id=title>
-        <p>
-        <h2>With_CAMPING</h2>
-        </p>
+  <!--body상단부-->
+  <div class="top_content">
+    <h1>WithCamping</h1>
+    <div class="searchBar">
+      <input class="searchBar_input" type="text" placeholder="캠핑장 검색">
+      <i class="fas fa-search"></i>
     </div>
-
-    <!-- 상품 검색 칸 -->
-    <div class="search">
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search for..." style="height: 45px; width: 1085px;">
-                    <span class="input-group-btn">
-                        <button class="btn btn-default" type="button" style="height: 45px; width: 45px;">
-                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                        </button>
-                    </span>
-                </div><!-- /input-group -->
-            </div><!-- /.col-lg-6 -->
-        </div><!-- /.row -->
-    </div>
-      <br>
-
-    <div id=content>
-        <p>
-        <h2>전체상품</h2>
-        </p>
-    </div>
-
-      <!-- 상품 보여주는 칸 -->
-    {% for a in camping_tools %}
-    <div class="row" style="float:left;">
-      <div class="col-sm-6 col-md-4">
-          <div class="thumbnail">'
-            <div class="caption">
-            {% if a.image %}
-            <a href="{% url 'camping_tool_detail' a.id %}"><img src="{{ a.image.url }}" alt="텐트" width="400px" height="100px"></a>
-            {% endif %}
-              <div class="a_btn">
-                <p><a href="{% url 'camping_tool_detail' a.id %}" class="btn btn-primary" role="button">구매하기</a> <!-- 링크 -->
-                    <a href="{% url 'camping_tool_detail' a.id %}" class="btn btn-default" role="button">대여하기</a>
-                </p> <!-- 링크 -->
-              </div>
+  </div>
+  
+  <div id="container">
+    <!--물건 리스트-->
+    <div class="camping_tools_wrap">
+      <ul>
+        <!--각 카드-->
+        {% for camping_tool in camping_tools %}
+        <li class="camping_tools_item">
+          <div class="row" style="float:left;">
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <img src="tent.jpg" alt="텐트" width="400px" height="100px">
+                    <div class="caption">
+                        <h4>메이튼 레드와일드 캠핑 오두막 텐트 3-4인용</h4>
+                        <p>구매:330,000원  &nbsp  &nbsp  대여:132,000원</p>
+                        <div class="a_btn">
+                            <p><a href="#" class="btn btn-primary" role="button">구매하기</a> <!-- 링크 -->
+                                <a href="#" class="btn btn-default" role="button">대여하기</a>
+                            </p> <!-- 링크 -->
+                        </div>
+                    </div>
+                </div>
             </div>
           </div>
-      </div>
-    </div>
-    {% endfor %}
+        </li>
+        {%endfor%}
+      </ul>
+    </div> 
 
-{% endblock %}
+  <!--페이지네이션-->
+  <div class="pagination_box">
+    <ul class="pagination">
+      <li class="page-item"><a class="page-link" href="#"><</a></li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item"><a class="page-link" href="#">4</a></li>
+      <li class="page-item"><a class="page-link" href="#">5</a></li>
+      <li class="page-item"><a class="page-link" href="#">></a></li>
+    </ul>
+  </div>
+</div>2
+
+   
+
+  <script>
+    
+  </script>
+  
+  {% endblock %}
