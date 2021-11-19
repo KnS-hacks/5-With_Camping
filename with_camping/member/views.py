@@ -34,8 +34,8 @@ def sign_up(request):
         if request.POST["password"] == request.POST["password2"]:
             user = Member.objects.create_user(
                 username = request.POST["username"],
+                people_name = request.POST["people_name"],
                 password = request.POST["password"], 
-                image = request.POST.get("image"),
                 nickname = request.POST["nickname"],
             ) 
             user.save()

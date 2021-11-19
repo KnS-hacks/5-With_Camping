@@ -60,20 +60,21 @@
     
     <div>
         <form class="loginform" action="{% url 'member_login' %}" method="POST">
+            {% csrf_token %}
             <div id="loging">
                 <h1 style="text-align: center;">로그인</h1>
                 <br>  <br>
                 <!-- 아이디 -->
                 <div class="form-group">
-                    <input type="text" class="form-control" id="userid" placeholder="아이디" name="userid">
+                    <input type="text" class="form-control" id="username" placeholder="아이디" name="username">
                 </div>
                 <!-- 비밀번호 -->
                 <div class="form-group">
-                    <input type="password" class="form-control" id="password1" placeholder="비밀번호" name="password1">
+                    <input type="password" class="form-control" id="password" placeholder="비밀번호" name="password">
                 </div>
                 <br>
-                
                 <button type="submit" class="loginbtn" value="login">로그인</button>
+                <p>{{ error }}</p>
             </div>
         </form>
 

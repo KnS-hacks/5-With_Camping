@@ -75,23 +75,20 @@
                     </div>
                 </div>
         
-        
+                <form method="POST" action="{% url 'sign_up' %}">
+                {% csrf_token %}
                 <!-- 이름 -->
                 <div class="form-group">
-                    <input type="text" class="form-control" id="username" placeholder="이름" name="username">
+                    <input type="text" class="form-control" id="people_name" placeholder="이름" name="people_name">
                 </div>
         
-                <!-- 이메일 -->
-                <div class="form-group">
-                    <input type="email" class="form-control" id="email" placeholder="Email address" name="email">
-                </div>
                 <!-- 아이디 -->
                 <div class="form-group">
-                    <input type="text" class="form-control" id="userid" placeholder="아이디" name="userid">
+                    <input type="text" class="form-control" id="username" placeholder="아이디" name="username">
                 </div>
                 <!-- 비밀번호 -->
                 <div class="form-group">
-                    <input type="password" class="form-control" id="password1" placeholder="비밀번호" name="password1">
+                    <input type="password" class="form-control" id="password" placeholder="비밀번호" name="password">
                 </div>
                 <!-- 비밀번호 확인 -->
                 <div class="form-group">
@@ -104,6 +101,7 @@
         
                 <!--회원가입 링크 -->
                 <a href="{% url 'home' %}"><button type="submit" class="register_btn" value="login">회원가입</button></a>
+                </form>
             </div>
         </div>
         {% endblock %}
