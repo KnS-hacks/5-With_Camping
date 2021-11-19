@@ -11,20 +11,17 @@
     
 .loginform{
 	background-color: #FFFFFC;
-    margin-top: 100px;
-	margin-right: 400px;
-	margin-left: 400px;
-	padding-top: 35px;
-	padding-bottom: 35px;
-    /* padding-left: 20px; */
 	text-align: center;
+    margin-top: 200px;
 }
 
 #loging{
 	padding-top: 0;
-	height: 500;
+	height: 500px;
 }
-
+#loging h1 {
+    margin-bottom: 90px;
+}
 
 .loginbtn {
 	text-decoration:none;
@@ -46,11 +43,13 @@
 	border-width:2px;
 	border-style:solid;
 	background-color: rgb(49, 130, 223);
+    margin-top:10px;
 }
 .form-group{
             width: 500px;
             height: 50px;
-            margin-left: 100px;
+            margin: 0 auto;
+            margin-bottom: 10px;
         }
     </style>
     {% endblock %}
@@ -58,25 +57,24 @@
   <!--본문 내용-->
   {% block content %}
     
-    <div>
         <form class="loginform" action="{% url 'member_login' %}" method="POST">
+            {% csrf_token %}
             <div id="loging">
                 <h1 style="text-align: center;">로그인</h1>
                 <br>  <br>
                 <!-- 아이디 -->
                 <div class="form-group">
-                    <input type="text" class="form-control" id="userid" placeholder="아이디" name="userid">
+                    <input type="text" class="form-control" id="username" placeholder="아이디" name="username">
                 </div>
                 <!-- 비밀번호 -->
                 <div class="form-group">
-                    <input type="password" class="form-control" id="password1" placeholder="비밀번호" name="password1">
+                    <input type="password" class="form-control" id="password" placeholder="비밀번호" name="password">
                 </div>
                 <br>
-                
                 <button type="submit" class="loginbtn" value="login">로그인</button>
+                <p>{{ error }}</p>
             </div>
         </form>
 
-    </div> 
 
     {% endblock %}

@@ -3,95 +3,71 @@
 
   <!-- 이 html에 추가되는 CSS -->
   {% block css %}
-  <style>
-    body{
-        background-color:#F2EAE0 ;
-      }      
-      /* 회원가입 흰 상자 */
-      #register_box{
-          background-color: white;
-          width: 800px;
-          margin-top: 70px;
-          margin-left: 350px;
-      }
-      #register_txt{
-          padding-top: 10px;
-          padding-bottom: 35px;
-      }
-      #container{
-          margin-left: 30px;
-      }
-      .form-group{
-          width: 500px;
-          height: 50px;
-          margin-left: 150px;
-      }
-      /* 정보 입력칸 */
-      .form-control{
-          height: 45px;
-      }
-      .btn{
-          margin-left: 150px;
-          width: 500px;
-          height: 45px;
-      }
-      .register_btn {
-  text-decoration:none;
-  font-family:Arial;
-  text-indent:0px;
-  line-height:30px;
-  -moz-border-radius:0px;
-  -webkit-border-radius:0px;
-  border-radius:0px;
-  text-align:center;
-  vertical-align:middle;
-  display:inline-block;
-  font-size:20px;
-  color:#f8f8f8;
-  width:289px;
-  height:50px;
-  padding:13px;
-  margin-left: 235px;
-  border-color:#fcfcfc;
-  border-width:2px;
-  border-style:solid;
-  background-color: rgb(49, 130, 223);
-}
-  </style>
 
-  {% endblock %}
+    <style>
+    body{
+        background-color:#FFFFFC;
+    } 
+    
+    #container{
+	    padding-top: 0;
+        height: auto;
+    }
+    #container h1 {
+        margin-bottom: 90px;
+    }
+
+.register_btn {
+	text-decoration:none;
+	font-family:Arial;
+	text-indent:0px;
+	line-height:30px;
+	-moz-border-radius:0px;
+	-webkit-border-radius:0px;
+	border-radius:0px;
+	text-align:center;
+	vertical-align:middle;
+	display:inline-block;
+	font-size:20px;
+	color:#f8f8f8;
+	width:289px;
+	height:50px;
+	padding:13px;
+	border-color:#fcfcfc;
+	border-width:2px;
+	border-style:solid;
+	background-color: rgb(49, 130, 223);
+    margin: 0 auto;
+}
+.form-group{
+            width: 500px;
+            height: 50px;
+            margin: 0 auto;
+            margin-bottom: 10px;
+        }
+    </style>
+    {% endblock %}
   
   <!--본문 내용-->
   {% block content %}
-        
-        <!-- 회원가입 -->
-        <div id="register_box">
-            <div id="register_txt"> 
-                <div id="container">
-                    <div class="row mt-5">
-                        <div class="col-12 text-center">
-                            <h2>With_CAMPING 회원가입</h2>
-                        </div>
-                    </div>
-                </div>
-        
-        
+    
+        <form method="POST" action="{% url 'sign_up' %}">
+            {% csrf_token %}
+            <div id="container">
+                <h1 style="text-align: center;">WithCamping 회원가입</h1>
+                <br>
                 <!-- 이름 -->
                 <div class="form-group">
-                    <input type="text" class="form-control" id="username" placeholder="이름" name="username">
+                    <input type="text" class="form-control" id="people_name" placeholder="이름" name="people_name">
                 </div>
         
-                <!-- 이메일 -->
-                <div class="form-group">
-                    <input type="email" class="form-control" id="email" placeholder="Email address" name="email">
-                </div>
                 <!-- 아이디 -->
                 <div class="form-group">
-                    <input type="text" class="form-control" id="userid" placeholder="아이디" name="userid">
+                    <input type="text" class="form-control" id="username" placeholder="아이디" name="username">
                 </div>
                 <!-- 비밀번호 -->
                 <div class="form-group">
-                    <input type="password" class="form-control" id="password1" placeholder="비밀번호" name="password1">
+                    <input type="password" class="form-control" id="password" placeholder="비밀번호" name="password">
                 </div>
                 <!-- 비밀번호 확인 -->
                 <div class="form-group">
@@ -101,9 +77,12 @@
                 <div class="form-group">
                     <input type="text" class="form-control" id="nickname" placeholder="닉네임" name="nickname">
                 </div>
-        
                 <!--회원가입 링크 -->
-                <a href="{% url 'home' %}"><button type="submit" class="register_btn" value="login">회원가입</button></a>
+                <div>
+                    <a href="{% url 'home' %}"><button type="submit" class="register_btn" value="login">회원가입</button></a>
+                </div>
             </div>
-        </div>
-        {% endblock %}
+        </form>
+
+
+    {% endblock %}
